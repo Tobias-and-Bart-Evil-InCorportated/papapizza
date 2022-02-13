@@ -1,26 +1,35 @@
 <h2>Create a pizza</h2>
- 
-<form action="/books/create" method="post">
-  <label> Title:
+
+<form action="/pizza/create" method="post">
+  <label>
+    Name:
     <input type="text" name="name" />
   </label>
- 
- 
-  <label> Author:
-     <select name="author">
-    {{#each authors}}
-      <option value="{{this._id}}">{{name}}</option>
-    {{/each}}
-     </select>
+  <br />
+
+  <label>
+    type of Pizza:
+    <input type="text" name="type" />
   </label>
- 
-  <label> Description:
-    <textarea name="description" cols="30" rows="4"> </textarea>
+  <br />
+
+  <label>
+    Details:
+    <textarea name="details" cols="30" rows="4"> </textarea>
   </label>
- 
-  <label> Rate:
-    <input type="number" name="rating" min="1" max="10" />
+  <br />
+
+  <label> type of Dough
+    <select name="dough">
+     <option value="{{this._id}}">{{name}}</option>
+    </select>
   </label>
- 
+  
+  <label>
+    Saus base:
+    <input type="text" name="saus" />
+  </label>
+  <br />
+
   <button type="submit"> Create </button>
 </form>
