@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const mongoose = require('mongoose');
 const bcryptjs = require('bcryptjs');
-const isLoggedIn =  require("../middleware/isLoggedIn");
-const isLoggedOut = require("../middleware/isLoggedOut");
+const isLoggedIn =  require("../middleware/LoggedInMiddleware");
+const isLoggedOut = require("../middleware/LoggedOutMiddleware");
 const User = require("../models/User.model");
 const saltRounds = 10;
 
