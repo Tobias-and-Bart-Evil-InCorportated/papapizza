@@ -1,0 +1,28 @@
+<div id="form">
+  <h2>Create Account</h2>
+
+  {{#if errorMessage}}
+    <p class="error">
+      {{errorMessage}}
+    </p>
+  {{/if}}
+
+
+  <form action="/createUser" method="POST">
+
+    <label>Name
+      <input type="name" name="name" placeholder="papapizza@amsterdam.nl" required />
+    </label>
+
+    <label> Email
+      <input type="email" name="email" placeholder="papapizza@amsterdam.nl" required />
+    </label>
+
+    <label> Password
+      <input type="password" name="password" placeholder="********" required />
+    </label>
+
+    <button type="submit">Create account</button>
+
+  </form>
+</div>
