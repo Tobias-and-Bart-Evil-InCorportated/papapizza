@@ -6,17 +6,17 @@ const isLoggedOut = require("../middleware/LoggedOutMiddleware");
 const User = require("../models/User.model");
 const saltRounds = 10;
 
-router.get("/signup", isLoggedOut, (req, res, next) => {
-    res.render("auth/signup");
+router.get("/createUser", isLoggedOut, (req, res, next) => {
+    res.render("auth/createUser");
 });
 
 
-router.post("/signup", isLoggedOut, (req, res, next) => {
+router.post("/createUser", isLoggedOut, (req, res, next) => {
 
     const {password, email} = req.body;
 
     if( !password || !email ){
-        res.render('auth/signup', { errorMessage: 'All fields are mandatory. Please provide email and password.' });
+        res.render('auth/createUser', { errorMessage: 'All fields are mandatory. Please provide email and password.' });
         return;
     }
     else if (password.length < 8) {
@@ -32,8 +32,10 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
         })
         .then( (hash) => {
             const userDetails = {
+                
                 email,
-                passwordHash: hash
+                passwordHash: hash,
+                userName: name,
             }
             return User.create(userDetails);
         })
@@ -42,7 +44,7 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
         })
         .catch( error => {
             if (error instanceof mongoose.Error.ValidationError) {
-                res.status(500).render('auth/signup', { errorMessage: error.message });
+                res.status(500).render('auth/createUser', { errorMessage: error.message });
             } else {
                 next(error);
             }
