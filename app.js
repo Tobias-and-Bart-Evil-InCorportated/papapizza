@@ -13,8 +13,8 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
-const isLoggedIn =  require("./middleware/isLoggedIn");
-const isLoggedOut = require("./middleware/isLoggedOut");
+const isLoggedIn =  require("./middleware/LoggedInMiddleware");
+const isLoggedOut = require("./middleware/LoggedOutMiddleware");
 
 const app = express();
 
