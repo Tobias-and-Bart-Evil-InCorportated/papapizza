@@ -1,5 +1,9 @@
 <div id="form">
+  <nav>
+  <a href="/">Home</a>
+  </nav>
   <h2>Create Account</h2>
+
 
   {{#if errorMessage}}
     <p class="error">
@@ -9,7 +13,7 @@
 
 
   <form action="/createUser" method="POST">
-
+  
     <label>Name
       <input type="name" name="name" placeholder="papapizza@amsterdam.nl" required />
     </label>
@@ -23,6 +27,6 @@
     </label>
 
     <button type="submit">Create account</button>
-
+  
   </form>
 </div>

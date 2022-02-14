@@ -1,4 +1,7 @@
+const Ingredients = require("../models/ingredients.model");
 const Pizza = require("../models/pizza.model");
+
+
 
 const router = require("express").Router();
 
@@ -43,6 +46,12 @@ router.post("/create", (req, res, next) => {
     .catch((err) => {
       console.log("Error creating new pizza...", err);
     })
+  });
+
+  
+
+  router.post("/create/ingriendts", (req, res, next) => {
+  res.send("page check")
   });
 
 module.exports = router;

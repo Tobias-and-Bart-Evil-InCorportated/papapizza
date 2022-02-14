@@ -33,6 +33,9 @@ app.use("/", index);
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
 
+// const accountRoutes = require("./routes/User");
+// app.use("/user", accountRoutes);
+
 const pizzaRoutes = require("./routes/papaPizza");
 app.use("/papaPizza", pizzaRoutes);
 
