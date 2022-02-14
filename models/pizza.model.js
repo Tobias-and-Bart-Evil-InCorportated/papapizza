@@ -9,8 +9,14 @@ const pizzaSchema = new Schema(
         unique: true,
       },
       tags: [String],
-      toppings: [String],
-      sauces: [String],
+      toppings:{
+        type: [String],
+        enum: ["salami","mozarella","peperoni","ham","beef","paprika","tomato","olives","mushroom","chicken","zucchini"],
+      }, 
+      sauces: {
+        type: [String],
+        enum: ["tomato sauce", "crême fresh", "barbecue sauce" ]
+      },
       baseCheese: String,
       dough:{
         type: String,
