@@ -67,11 +67,11 @@ router.get("/create/ingredients", (req, res, next) => {
 
 
 router.get("/:pizzaId", (req, res, next) => {
-  Pizza.findById()
+  Pizza.findById(req.params.pizzaId)
   .then(resultFromDB => {
       // resultFromDB.push(test_pizza);
       console.log("DB Result of pizza:", resultFromDB)
-      res.render("pizza/pizza-details", {pizzas: resultFromDB });
+      res.render("pizza/pizza-details", resultFromDB );
   })
   .catch()
 });

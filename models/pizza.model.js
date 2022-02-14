@@ -23,8 +23,9 @@ const pizzaSchema = new Schema(
         required: true,
         enum: ["neapolitian", "gluten free","vegie dough"],
         default: "neapolitian",
+        
       },
-
+      details: String,
       
     
     },
