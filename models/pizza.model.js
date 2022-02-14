@@ -3,14 +3,24 @@ const { Schema, model } = require("mongoose");
 
 const pizzaSchema = new Schema(
   {
-      name: String,
-      type: String,
+      name: {
+        type: String,
+        required: [true, 'name of a pizza is required.'],
+        unique: true,
+      },
+      tags: [String],
       toppings: [String],
-      sauce: [String],
-      cheese: String,
-      dough: String,
+      sauces: [String],
+      baseCheese: String,
+      dough:{
+        type: String,
+        required: true,
+        enum: ["neapolitian", "gluten free","vegie dough"],
+        default: "neapolitian",
+      },
 
-      details: String,
+      
+    
     },
   {
     
