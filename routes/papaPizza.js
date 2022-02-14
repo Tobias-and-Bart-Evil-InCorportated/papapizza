@@ -18,6 +18,16 @@ router.get("/", (req, res, next) => {
     .catch()
 });
 
+router.get("/:pizzaId", (req, res, next) => {
+    Pizza.findById()
+    .then(resultFromDB => {
+        // resultFromDB.push(test_pizza);
+        console.log("DB Result of pizza:", resultFromDB)
+        res.render("pizza/pizza-details", {pizzas: resultFromDB });
+    })
+    .catch()
+});
+
 router.get("/create", (req, res, next) => {
     Pizza.find()
     .then( (pizzasResult) => {
@@ -50,7 +60,18 @@ router.post("/create", (req, res, next) => {
 
   
 
-  router.post("/create/ingriendts", (req, res, next) => {
+router.get("/create/ingredients", (req, res, next) => {
+    Ingredients.find()
+  .then( (ingredientsResult) => {
+    // console.log("new type", authorsResult)
+    res.render("pizza/pizza-ingredients", {ingriendts: ingredientsResult});
+
+  })
+  .catch();
+});
+  
+
+  router.post("/create/ingredients", (req, res, next) => {
   res.send("page check")
   });
 

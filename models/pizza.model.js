@@ -6,7 +6,8 @@ const pizzaSchema = new Schema(
       name: String,
       type: String,
       toppings: [String],
-      saus: [String],
+      sauce: [String],
+      cheese: String,
       dough: String,
 
       details: String,
