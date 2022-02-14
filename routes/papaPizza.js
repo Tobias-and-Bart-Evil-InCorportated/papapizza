@@ -37,8 +37,8 @@ router.post("/create", (req, res, next) => {
       
     }
     Pizza.create(pizzaDetails)
-    .then(book => {
-      res.redirect("/papaPizza")
+    .then(pizza => {
+      res.redirect("/pizza")
     })
     .catch((err) => {
       console.log("Error creating new pizza...", err);
