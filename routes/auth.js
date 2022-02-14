@@ -13,15 +13,15 @@ router.get("/createUser", isLoggedOut, (req, res, next) => {
 
 router.post("/createUser", isLoggedOut, (req, res, next) => {
 
-    const {password, email} = req.body;
+    const {password, email, name} = req.body;
 
-    if( !password || !email ){
-        res.render('auth/createUser', { errorMessage: 'All fields are mandatory. Please provide email and password.' });
+    if( !password || !email || !name){
+        res.render('auth/createUser', { errorMessage: 'All fields are mandatory. Please provide name, email and password.' });
         return;
     }
-    else if (password.length < 8) {
+    else if (password.length < 4) {
         return res.status(400).render("auth/login", {
-        errorMessage: "Your password needs to be at least 8 characters long.",
+        errorMessage: "Your password needs to be at least 4 characters long.",
         });
     }
 
@@ -82,7 +82,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 
-router.get('/user-profile', /*isLoggedIn,*/ (req, res) => {
+router.get('/user-profile', isLoggedIn, (req, res) => {
     res.render('auth/user-profile', { userInSession: req.session.currentUser });
     
 });
