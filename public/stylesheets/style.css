@@ -6,7 +6,12 @@ body {
 a {
   color: #00b7ff;
 }
-
+.background{
+max-width: 100%;
+background-image: url("/images/pizzahintergrund.jpg");
+background-repeat: no-repeat;
+height: 800px;
+}
 h1 {
   color: 15px;
 }
@@ -14,16 +19,15 @@ h1 {
   text-align: center;
   margin-top: 15vh;
 }
-.textRow{
-  /* display:table-cell;vertical-align:center; */
-  justify-content: center;
-  align-items:center;
+.centerLinkText{
+  text-align: center;
 }
 .textLink{
+  margin-top: 40px;
+}
+.textRow{
   
-  text-align: center;
-  margin-top: 20px;
-  font-size: 20px;
+  display: inline-block; text-align: right;
 }
 .linkColor{
   color: rgb(249, 250, 249);
@@ -31,5 +35,5 @@ h1 {
   text-decoration: underline;
 }
 .linkImage{
-max-width: 5%;
+max-width: 10%;
 }
