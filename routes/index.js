@@ -6,12 +6,13 @@ const router = require("express").Router();
 router.get("/", (req, res, next) =>{
 
   // const pizzaDetails = {
-  //   name: "test margharita 5",
+  //   name: "test margharita 6",
   //   tags: ["veggie"],
-  //   toppings: ["pinnaple"],
-  //   sauces: ["tomato base"],
+  //   toppings: ["salami"],
+  //   sauces: ["tomato sauce"],
   //   baseCheese:"cheese",
   //   dough:"neapolitian",
+  //   details:"no eggs needed"
   // }
 
   // Pizza.create(pizzaDetails)
