@@ -1,12 +1,17 @@
-<h1> Pizza Recepie for {{name}}</h1>
-
+<h1> Pizza Recepie </h1>
+<h1>{{name}}</h1> 
 
 <a href="/papaPizza">back</a>
 <section class="pizza's-detail">
-<p>{{tags}}</p><br>
-<p>{{toppings}}</p><br>
-<p>{{sauces}}</p><br>
-<p>{{dough}}</p><br>
-<p>{{baseCheese}}</p><br>
-<p>{{details}}</p><br>
+   
+<p>Type: {{tags}}</p>
+<ol>Toppings:
+{{#each toppings}}
+<li>{{this}}</li>
+{{/each}}
+</ol><br>
+<p>Sauce: {{sauces}}</p>
+<p>Dough: {{dough}}</p>
+<p>Cheese base: {{baseCheese}}</p>
+<p>Details: {{details}}</p>
 </section>
