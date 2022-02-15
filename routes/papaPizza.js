@@ -33,7 +33,7 @@ router.post("/create", (req, res, next) => {
     const pizzaDetails = {
       name: req.body.name,
       type: req.body.type,
-      saus: req.body.saus,
+      saus: req.body.sauce,
       toppings: req.body.toppings,
       dough: req.body.dough,
       details: req.body.details,
@@ -41,7 +41,7 @@ router.post("/create", (req, res, next) => {
     }
     Pizza.create(pizzaDetails)
     .then(pizza => {
-      res.redirect("/pizza")
+      res.redirect("/papaPizza")
     })
     .catch((err) => {
       console.log("Error creating new pizza...", err);
