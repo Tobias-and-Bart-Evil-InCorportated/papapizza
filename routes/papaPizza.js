@@ -11,7 +11,7 @@ router.get("/", (req, res, next) => {
     Pizza.find()
     .then(resultFromDB => {
         // resultFromDB.push(test_pizza);
-        console.log("DB Result of pizza:", resultFromDB)
+        // console.log("DB Result of pizza:", resultFromDB)
         res.render("pizza/pizza-list", {pizzas: resultFromDB });
     })
     .catch()
@@ -28,7 +28,7 @@ router.get("/create", (req, res, next) => {
   });
 
 router.post("/create", (req, res, next) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     const pizzaDetails = {
       name: req.body.name,
@@ -71,7 +71,7 @@ router.get("/:pizzaId", (req, res, next) => {
   Pizza.findById(req.params.pizzaId)
   .then(resultFromDB => {
       // resultFromDB.push(test_pizza);
-      console.log("DB Result of pizza:", resultFromDB)
+      // console.log("DB Result of pizza:", resultFromDB)
       res.render("pizza/pizza-details", resultFromDB );
   })
   .catch()
