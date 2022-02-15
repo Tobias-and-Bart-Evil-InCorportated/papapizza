@@ -6,7 +6,12 @@ body {
 a {
   color: #00b7ff;
 }
-
+.background{
+background-image: url("/images/pizzahintergrund.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+height: 500px;
+}
 h1 {
   color: 15px;
 }
@@ -18,7 +23,7 @@ h1 {
 
 .textLink{
   text-align: center;
-  margin-top: 20px;
+  padding-top: 20px;
   font-size: 20px;
 }
 .linkColor{
