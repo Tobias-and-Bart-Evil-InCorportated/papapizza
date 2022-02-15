@@ -11,3 +11,21 @@ h1 {
   color: 15px;
 }
 
+#homeHeader{
+  text-align: center;
+  margin-top: 15vh;
+}
+
+.textLink{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+}
+.linkColor{
+  color: rgb(249, 250, 249);
+  background-color: transparent;
+  text-decoration: underline;
+}
+.linkImage{
+ max-width: 5%;
+}
