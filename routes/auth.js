@@ -40,7 +40,7 @@ router.post("/createUser", isLoggedOut, (req, res, next) => {
             return User.create(userDetails);
         })
         .then( userFromDB => {
-            res.redirect("/");
+            res.render("auth/login");
         })
         .catch( error => {
             if (error instanceof mongoose.Error.ValidationError) {
@@ -72,7 +72,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
             } else if (bcryptjs.compareSync(password, userFromDB.passwordHash)) {
                 //login sucessful
                 req.session.currentUser = userFromDB;
-                res.redirect("/user-profile");
+                res.render("auth/user-profile");
             } else {
                 //login failed
                 res.render('auth/login', { errorMessage: 'Incorrect credentials.' });
@@ -83,6 +83,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
 
 router.get('/user-profile', isLoggedIn, (req, res) => {
+    User.findOne()
     res.render('auth/user-profile', { userInSession: req.session.currentUser });
     
 });
