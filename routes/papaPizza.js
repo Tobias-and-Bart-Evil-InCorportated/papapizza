@@ -15,7 +15,7 @@ router.get("/", (req, res, next) => {
     .catch();
 });
 
-router.get("/create", (req, res, next) => {
+router.get("/create", isLoggedIn,(req, res, next) => {
   // console.log("---------------------------")
   // console.log(Pizza.schema.path('baseCheese').caster.enumValues);
   const toppingEnumArray = Pizza.schema.path("toppings").caster.enumValues;
