@@ -14,15 +14,27 @@
   
    <nav class="navbar navbar-light" style="background-color: #f1c37a;">
    <div class="container-fluid">
+      <div>
     <a class="navbar-brand" href="/">
       <img src="/images/pizzaman.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
       PapaPizza
     </a>
+    
+<button type="button" class="btn btn-success"><a style="text-decoration: none" href="/">Home</a></button>
+</div>
+
+   <div>
     {{#if whenLoggedIn}}
-    <a href="/auth/createUser">logout</a>
+    <button type="button" class="btn btn-success"><a href="/auth/user-profile" style="text-decoration: none">user profile</a></button>
+    
+   {{else}}
+    <button type="button" class="btn btn-success"><a href="/auth/createUser" style="text-decoration: none">register</a></button>
+    <button type="button" class="btn btn-success"><a href="/auth/login" style="text-decoration: none">login</a></button>
+
     {{/if}}
-  </div>
-     </nav>
+   </div>
+    </div>
+   </nav>
       {{{body}}}
 
       <script src="/js/script.js"></script>
