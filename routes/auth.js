@@ -6,6 +6,7 @@ const isLoggedOut = require("../middleware/LoggedOutMiddleware");
 const User = require("../models/User.model");
 const saltRounds = 10;
 
+
 router.get("/createUser", isLoggedOut, (req, res, next) => {
     res.render("auth/createUser");
 });

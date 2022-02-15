@@ -18,6 +18,9 @@
       <img src="/images/pizzaman.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
       PapaPizza
     </a>
+    {{#if whenLoggedIn}}
+    <a href="/auth/createUser">logout</a>
+    {{/if}}
   </div>
   
    </nav>
