@@ -15,7 +15,11 @@ height: 900px;
 
 }
 .backgroundlist{
-  background-image: url("/images/pizzalist3.webp");
+  background-image: url("/images/pizzalist1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1350px;
+  /* color: beige; */
 }
 h1 {
   color: 15px;
