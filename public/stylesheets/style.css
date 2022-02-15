@@ -10,13 +10,17 @@ a {
 h1 {
   color: 15px;
 }
-
 #homeHeader{
   text-align: center;
   margin-top: 15vh;
 }
-
+.textRow{
+  /* display:table-cell;vertical-align:center; */
+  justify-content: center;
+  align-items:center;
+}
 .textLink{
+  
   text-align: center;
   margin-top: 20px;
   font-size: 20px;
@@ -27,5 +31,5 @@ h1 {
   text-decoration: underline;
 }
 .linkImage{
- max-width: 5%;
+max-width: 5%;
 }
