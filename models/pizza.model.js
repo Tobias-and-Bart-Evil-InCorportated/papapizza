@@ -17,7 +17,10 @@ const pizzaSchema = new Schema(
         type: [String],
         enum: ["tomato sauce", "crême fresh", "barbecue sauce" ]
       },
-      baseCheese: String,
+      baseCheese: {
+        type: [String],
+        enum:["shredded cheese","gouda","cheddar","gorgonzola","mozarella","bufflo mozarella","pecorino"],
+      },
       dough:{
         type: String,
         required: true,

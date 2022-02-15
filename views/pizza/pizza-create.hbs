@@ -42,20 +42,21 @@
 
 
 
+ <h3>Toppings:</h3>
+    <p>Choose your Toppings:</p>
 
+{{#each enumTopArr}}
+<input type="checkbox" class="toppings" name="toppings" value="{{this}}">
+  <label for="toppings"> add {{this}} </label><br>
+{{/each}}
+ 
+ <h3>Cheese</h3>
+ <p> Create your cheese base:</p>
 
-  <br />
-
-    <label>
-    Toppings:
-    <select name="toppings">
-      
-      <input value="salami" name="toppings" />
-      <input value="mozarella" name="toppings" />
-      <input value="peperoni" name="toppings" />
-    </select>
-  </label>
-  <br />
+ {{#each enumCheeseArr}}
+ <input type="checkbox" class="baseCheese" name="baseCheese" value="{{this}}">
+  <label for="baseCheese"> add {{this}} </label><br>
+{{/each}}
 
   <label>
     Details:

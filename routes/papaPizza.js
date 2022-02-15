@@ -19,16 +19,27 @@ router.get("/", (req, res, next) => {
 
 
 router.get("/create", (req, res, next) => {
+  console.log("---------------------------")
+  console.log(Pizza.schema.path('baseCheese').caster.enumValues);
+  const toppingEnumArray = Pizza.schema.path('toppings').caster.enumValues;
+  const CheeseEnumArray = Pizza.schema.path('baseCheese').caster.enumValues;
+  console.log(CheeseEnumArray)
     Pizza.find()
     .then( (pizzasResult) => {
       // console.log("new type", authorsResult)
-      res.render("pizza/pizza-create", {pizza: pizzasResult});
+      res.render("pizza/pizza-create", {
+        pizza: pizzasResult, 
+        enumTopArr: toppingEnumArray,
+        enumCheeseArr: CheeseEnumArray
+      });
     })
     .catch();
   });
 
 router.post("/create", (req, res, next) => {
     console.log(req.body);
+
+  
 
     const pizzaDetails = {
       name: req.body.name,
@@ -48,6 +59,9 @@ router.post("/create", (req, res, next) => {
       console.log("Error creating new pizza...", err);
     })
   });
+ 
+
+
 
   
 
