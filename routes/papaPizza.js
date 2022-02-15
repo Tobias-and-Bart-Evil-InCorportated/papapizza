@@ -34,9 +34,9 @@ router.post("/create", (req, res, next) => {
       name: req.body.name,
       tags: req.body.tags,
       dough: req.body.dough,
-      sauce: req.body.sauce,
+      sauces: req.body.sauces,
       toppings: req.body.toppings,
-      cheece: req.body.baseCheese,
+      cheese: req.body.baseCheese,
       details: req.body.details,
       
     }
