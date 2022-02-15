@@ -32,10 +32,11 @@ router.post("/create", (req, res, next) => {
 
     const pizzaDetails = {
       name: req.body.name,
-      type: req.body.type,
-      saus: req.body.sauce,
-      toppings: req.body.toppings,
+      tags: req.body.tags,
       dough: req.body.dough,
+      sauce: req.body.sauce,
+      toppings: req.body.toppings,
+      cheece: req.body.baseCheese,
       details: req.body.details,
       
     }
