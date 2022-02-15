@@ -6,10 +6,10 @@ const router = require("express").Router();
 router.get("/", (req, res, next) =>{
 
   // const pizzaDetails = {
-  //   name: "test margharita 6",
-  //   tags: ["veggie"],
-  //   toppings: ["salami"],
-  //   sauces: ["tomato sauce"],
+  //   name: "uno salami",
+  //   tags: ["meaty"],
+  //   toppings: ["salami","mozarella","ham","beef"],
+  //   sauces: ["tomato sauce", "crême fresh"],
   //   baseCheese:"cheese",
   //   dough:"neapolitian",
   //   details:"no eggs needed"
