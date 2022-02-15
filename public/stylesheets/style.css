@@ -6,13 +6,12 @@ body {
 a {
   color: #00b7ff;
 }
-.background{
+.backgroundHome{
 max-width: 100%;
-background-image: url("/images/pizzahintergrund.jpg");
+background-image: url("/images/pizzaOnFire.jpg");
 background-repeat: no-repeat;
 background-size: cover;
 height: 900px;
-
 }
 .backgroundlist{
   background-image: url("/images/pizzalist3.webp");
@@ -31,8 +30,8 @@ h1 {
   margin-top: 40px;
 }
 .textRow{
-  
-  display: inline-block; text-align: right;
+  font-size: x-large;
+  display: inline-block; text-align: left;
 }
 .linkColor{
   color: rgb(249, 250, 249);
@@ -40,5 +39,5 @@ h1 {
   text-decoration: underline;
 }
 .linkImage{
-max-width: 10%;
+max-width: 15%;
 }
