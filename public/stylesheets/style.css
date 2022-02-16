@@ -59,11 +59,27 @@ h1 {
   font-size: x-large;
   display: inline-block; text-align: left;
 }
+.whiteText{
+  color: rgb(249, 250, 249);
+}
 .linkColor{
   color: rgb(249, 250, 249);
   background-color: transparent;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .linkImage{
-max-width: 15%;
+max-width: 100px;
+}
+.col{
+  margin: 20px;
+  padding: 20px;
+}
+.pizzasListBox{
+   display: flex;
+  
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.pizzasListRow{
+ width: 33%;
 }

@@ -1,11 +1,12 @@
 <div class="backgroundlist">
-<h1> pizza's in our Papa database</h1>
-
-{{#each pizzas}}
-<section class="pizza's-summary">
-<h2><img class="linkImage" src="./images/pizzaman.png" alt="pizza with a man">{{this.name}}</h2>
-<a href="/papaPizza/{{this._id}}">more details</a> |
-
-</section>
-{{/each}}
+    <h1> pizza's in our Papa database</h1>
+        <div class="pizzasListBox">
+            {{#each pizzas}}
+                <div class=" pizzasListRow">
+                <h2 class="whiteText"><img class="linkImage" src="./images/pizzaman.png" alt="pizza with a man">{{this.name}}</h2>
+                <p class="whiteText">{{this.tags}}</p>
+                <a class="linkColor" href="/papaPizza/{{this._id}}">more details</a> 
+                </div>
+            {{/each}}
+        </div>
 </div>
