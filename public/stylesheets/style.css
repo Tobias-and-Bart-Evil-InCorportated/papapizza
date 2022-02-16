@@ -13,8 +13,30 @@ background-repeat: no-repeat;
 background-size: cover;
 height: 900px;
 }
+.backgroundCreateUser{
+  max-width: 100%;
+  background-image: url("/images/pizzas1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 900px;
+  }
+.backgroundCreatePizza{
+    max-width: 100%;
+    background-image: url("/images/pizzaDough.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 900px;
+  }
+.backgroundPizzaDetails{
+  max-width: 100%;
+  background-image: url("/images/pizzaTopping.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 900px;
+  }
 .backgroundlist{
-  background-image: url("/images/pizzalist1.png");
+  max-width: 100%;
+  background-image: url("/images/pizzas2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 1350px;
