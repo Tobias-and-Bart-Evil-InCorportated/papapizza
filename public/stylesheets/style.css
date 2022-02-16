@@ -75,13 +75,12 @@ max-width: 100px;
   padding: 20px;
 }
 .pizzasListBox{
-   display: flex;
-  
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 .pizzasListRow{
- width: 33%;
+width: 33%;
 max-width: 15%;
 }
 .sideway{

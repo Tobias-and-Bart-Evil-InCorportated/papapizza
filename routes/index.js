@@ -14,7 +14,6 @@ router.get("/", (req, res, next) =>{
   //   dough:"neapolitian",
   //   details:"no eggs needed"
   // }
-
   // Pizza.create(pizzaDetails)
   //   .then( (pizzaDetails)=> console.log("create pizza",+ pizzaDetails))
     
