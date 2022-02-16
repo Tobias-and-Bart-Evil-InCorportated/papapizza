@@ -1,66 +1,67 @@
-<h2>Create a pizza</h2>
+<div class="backgroundCreatePizza">
+  <h2>Create a pizza</h2>
 
 
-<form action="/papaPizza/create" method="POST">
-  <label>
-    Name:
-    <input type="text" name="name" />
-  </label>
-  <br />
+  <form action="/papaPizza/create" method="POST">
+    <label>
+      Name:
+      <input type="text" name="name" />
+    </label>
+    <br />
 
-  <label>
-    type of Pizza:
-    <input type="text" name="tags" />
-  </label>
-  <br />
+    <label>
+      type of Pizza:
+      <input type="text" name="tags" />
+    </label>
+    <br />
 
 
-  <label> type of dough:
-    <select name="dough">
-      <option value="neapolitian"> Neapolitian (normal pizza dough)</option>
-      <option value="gluten free"> Gluten free pizza dough</option>
-      <option value="vegie dough"> Vegie dough</option>
-    </select>
-  </label>
-  <br />
+    <label> type of dough:
+      <select name="dough">
+        <option value="neapolitian"> Neapolitian (normal pizza dough)</option>
+        <option value="gluten free"> Gluten free pizza dough</option>
+        <option value="vegie dough"> Vegie dough</option>
+      </select>
+    </label>
+    <br />
 
+    
+      <h3>sauce base:</h3>
+      <p>Choose 1 or more sauces for your pizza</p>
+
+  <div>
+    <input type="checkbox" id="sauce1" name="sauces" value="tomato sauce" checked>
+    <label for="sauces"> i want pizza tomato sauce</label><br>
+    <input type="checkbox" id="sauce2" name="sauces" value="crême fresh">
+    <label for="sauces"> i want pizza crême freshs</label><br>
+    <input type="checkbox" id="sauce3" name="sauces" value="barbecue sauce">
+    <label for="sauces"> i want pizza barbecue sauce</label><br>
+  </div>
+
+
+
+  <h3>Toppings:</h3>
+      <p>Choose your Toppings:</p>
+
+  {{#each enumTopArr}}
+  <input type="checkbox" class="toppings" name="toppings" value="{{this}}">
+    <label for="toppings"> add {{this}} </label><br>
+  {{/each}}
+  <h3>Cheese</h3>
+  <p> Create your cheese base:</p>
+
+  {{#each enumCheeseArr}}
+  <input type="checkbox" class="baseCheese" name="baseCheese" value="{{this}}">
+    <label for="baseCheese"> add {{this}} </label><br>
+  {{/each}}
   
-    <h3>sauce base:</h3>
-    <p>Choose 1 or more sauces for your pizza</p>
+    <label>
+      Details:<br>
+      <textarea name="details" cols="40" rows="3"> </textarea>
+    </label>
+    <br />
 
-<div>
-  <input type="checkbox" id="sauce1" name="sauces" value="tomato sauce" checked>
-  <label for="sauces"> i want pizza tomato sauce</label><br>
-  <input type="checkbox" id="sauce2" name="sauces" value="crême fresh">
-  <label for="sauces"> i want pizza crême freshs</label><br>
-  <input type="checkbox" id="sauce3" name="sauces" value="barbecue sauce">
-  <label for="sauces"> i want pizza barbecue sauce</label><br>
+    <button type="submit"> Create </button>
+
+  </form>
 </div>
-
-
-
- <h3>Toppings:</h3>
-    <p>Choose your Toppings:</p>
-
-{{#each enumTopArr}}
-<input type="checkbox" class="toppings" name="toppings" value="{{this}}">
-  <label for="toppings"> add {{this}} </label><br>
-{{/each}}
- 
- <h3>Cheese</h3>
- <p> Create your cheese base:</p>
-
- {{#each enumCheeseArr}}
- <input type="checkbox" class="baseCheese" name="baseCheese" value="{{this}}">
-  <label for="baseCheese"> add {{this}} </label><br>
-{{/each}}
- 
-  <label>
-    Details:<br>
-    <textarea name="details" cols="40" rows="3"> </textarea>
-  </label>
-  <br />
-
-  <button type="submit"> Create </button>
-
-</form>
