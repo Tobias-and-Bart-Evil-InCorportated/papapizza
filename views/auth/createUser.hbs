@@ -1,31 +1,32 @@
-<div class="backgroundCreateUser"></div>
-<div id="form">
- 
-  <h2>Create Account</h2>
-
-
-  {{#if errorMessage}}
-    <p class="error">
-      {{errorMessage}}
-    </p>
-  {{/if}}
-<div></div>
-
-  <form action="/auth/createUser" method="POST">
+<div class="backgroundCreateUser">
+  <div id="form">
   
-    <label>Name
-      <input type="name" name="name" placeholder="name" required />
-    </label>
+    <h2>Create Account</h2>
 
-    <label> Email
-      <input type="email" name="email" placeholder="papapizza@amsterdam.nl" required />
-    </label>
 
-    <label> Password
-      <input type="password" name="password" placeholder="********" required />
-    </label>
+    {{#if errorMessage}}
+      <p class="error">
+        {{errorMessage}}
+      </p>
+    {{/if}}
+  <div></div>
 
-    <button type="submit">Create account</button>
-  
-  </form>
+    <form action="/auth/createUser" method="POST">
+    
+      <label>Name
+        <input type="name" name="name" placeholder="name" required />
+      </label>
+
+      <label> Email
+        <input type="email" name="email" placeholder="papapizza@amsterdam.nl" required />
+      </label>
+
+      <label> Password
+        <input type="password" name="password" placeholder="********" required />
+      </label>
+
+      <button class="btn btn-success" type="submit">Create account</button>
+    
+    </form>
+  </div>
 </div>

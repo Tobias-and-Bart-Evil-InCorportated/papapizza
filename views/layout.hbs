@@ -26,9 +26,15 @@
    <div>
     {{#if whenLoggedIn}}
     <button type="button" class="btn btn-success"><a href="/auth/user-profile" style="text-decoration: none">user profile</a></button>
+<<<<<<< HEAD
     <button type="button" class="btn btn-success" style="text-decoration: none"> <form action="/auth/logout" method="POST">Logout</form></button>
     {{!-- <form action="/auth/logout" method="POST"><button type="submit" class="btn btn-success">Logout</button></form> --}}
      
+=======
+    <form action="/auth/logout" method="POST">
+    <button type="submit" class="btn btn-success">Logout</button>
+   </form>
+>>>>>>> 42674f4a33181c0c3d4f60e970dd42a25188e03a
    {{else}}
     <button type="button" class="btn btn-success"><a href="/auth/createUser" style="text-decoration: none">register</a></button>
     <button type="button" class="btn btn-success"><a href="/auth/login" style="text-decoration: none">Login</a></button>
