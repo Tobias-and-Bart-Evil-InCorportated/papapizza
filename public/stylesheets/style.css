@@ -67,3 +67,14 @@ h1 {
 .linkImage{
 max-width: 15%;
 }
+.sideway{
+  display: flex;
+  flex-direction: row;
+}
+#space{
+  padding-left: 20px;
+}
+
+#whitelink{
+  color: rgb(249, 250, 249);
+}
