@@ -3,7 +3,11 @@
 
 {{#each pizzas}}
 <section class="pizza's-summary">
-<h2><img class="linkImage" src="./images/pizzaman.png" alt="pizza with a man">{{this.name}}</h2>
+
+<h2><img class="linkImage" src="{{this.imagesUrl}}" alt="{{this.name}}"> {{this.name}}</h2>
+  {{!-- <img class="linkImage" src="./images/pizzaman.png" alt="pizza with a man"> --}}
+
+
 <a href="/papaPizza/{{this._id}}">more details</a> |
 
 </section>

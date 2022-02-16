@@ -28,6 +28,7 @@ const pizzaSchema = new Schema(
         default: "neapolitian",
         
       },
+      imagesUrl: String,
       details: String,
       
     

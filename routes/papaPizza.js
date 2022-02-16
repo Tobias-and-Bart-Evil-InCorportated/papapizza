@@ -1,6 +1,7 @@
 const isLoggedIn = require("../middleware/LoggedInMiddleware");
 const Ingredients = require("../models/ingredients.model");
 const Pizza = require("../models/pizza.model");
+const fileUploader = require('../config/cloudinary.config');
 
 const router = require("express").Router();
 
@@ -33,8 +34,8 @@ router.get("/create", isLoggedIn,(req, res, next) => {
     .catch();
 });
 
-router.post("/create", (req, res, next) => {
-  // console.log(req.body);
+router.post("/create", fileUploader.single('pizza-cover-image'), (req, res, next) => {
+  console.log(req.file.path);
   const pizzaDetails = {
     name: req.body.name,
     tags: req.body.tags,
@@ -42,6 +43,7 @@ router.post("/create", (req, res, next) => {
     sauces: req.body.sauces,
     toppings: req.body.toppings,
     baseCheese: req.body.baseCheese,
+    imagesUrl: req.file.path, 
     details: req.body.details,
   };
   Pizza.create(pizzaDetails)
