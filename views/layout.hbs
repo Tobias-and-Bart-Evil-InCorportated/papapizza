@@ -26,11 +26,12 @@
    <div>
     {{#if whenLoggedIn}}
     <button type="button" class="btn btn-success"><a href="/auth/user-profile" style="text-decoration: none">user profile</a></button>
-    <form action="/auth/logout" method="POST"><button type="submit" class="btn btn-success">Logout</button></form>
+    <button type="button" class="btn btn-success" style="text-decoration: none"> <form action="/auth/logout" method="POST">Logout</form></button>
+    {{!-- <form action="/auth/logout" method="POST"><button type="submit" class="btn btn-success">Logout</button></form> --}}
      
    {{else}}
     <button type="button" class="btn btn-success"><a href="/auth/createUser" style="text-decoration: none">register</a></button>
-    <button type="button" class="btn btn-success"><a href="/auth/login" style="text-decoration: none">login</a></button>
+    <button type="button" class="btn btn-success"><a href="/auth/login" style="text-decoration: none">Login</a></button>
 
     {{/if}}
    </div>
