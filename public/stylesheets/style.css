@@ -22,9 +22,9 @@ height: 900px;
   }
 .backgroundCreatePizza{
     max-width: 100%;
-    background-image: url("/images/pizzaDough.jpg");
-    background-repeat: no-repeat;
+    background-image: url("/images/background.jpg");
     background-size: cover;
+    background-repeat: repeat;
     height: 900px;
   }
 .backgroundPizzaDetails{
@@ -61,11 +61,21 @@ h1 {
   text-align: left;
   align-items: left;
 }
-.whiteText{
+.opacityBox{
   background-color: black;
   padding: 40px;
   opacity: 0.8;
-  border-radius:2% ;
+  border-radius:10px ;
+  color: rgb(249, 250, 249);
+}
+.opacityBoxSlim{
+  background-color: black;
+  padding: 10px;
+  opacity: 0.8;
+  border-radius:10px ;
+  color: rgb(249, 250, 249);
+}
+.whiteText{ 
   color: rgb(249, 250, 249);
 }
 .linkColor{

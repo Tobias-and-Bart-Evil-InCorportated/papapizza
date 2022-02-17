@@ -1,20 +1,21 @@
 
 <div class="backgroundCreateUser">
+    <div class="opacityBox">
     <h1>User Profile from {{ userInSession.userName}}</h1>
         <form action="/auth/logout" method="POST">
             <button class="btn btn-success" type="submit">Logout</button>
         </form>
 
 
-        <div>
-        <img src="./images/spacePizza" alt="">
+        <div >
+        <img class="linkImage" src="./images/spacePizza.png" alt="">
         <h1>if you need to wait while your pizza is in the Oven here are some games you might play while waiting!</h1>
         <a href="https://bartocaster.github.io/dungeon-Crawler/">Dungeon Crawler</a>
         </div>
         <div>
-        <img src="./images/spacePizza" alt="">
+        <img class="linkImage" src="./images/spacePizza.png" alt="">
         <a href="https://rospini.github.io/Oort-Cloud-Defenders/">Oort Cloud Defenders</a>
         </div>
+    </div>
 </div>
-
 
