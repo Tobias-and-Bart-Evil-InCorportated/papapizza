@@ -35,7 +35,6 @@ router.get("/create", isLoggedIn,(req, res, next) => {
 });
 
 router.post("/create", fileUploader.single('pizza-cover-image'), (req, res, next) => {
-  console.log(req.file.path);
   const pizzaDetails = {
     name: req.body.name,
     tags: req.body.tags,
@@ -65,7 +64,13 @@ router.get("/create/ingredients", isLoggedIn, (req, res, next) => {
 });
 
 router.post("/create/ingredients", (req, res, next) => {
-  res.send("page check");
+  Pizza.find()
+  .then((pizzasResult) => {
+    res.render("pizza/pizza-create", {
+      pizza: pizzasResult,
+    });
+  })
+  .catch();
 });
 
 router.get("/:pizzaId", (req, res, next) => {
