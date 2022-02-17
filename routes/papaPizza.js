@@ -23,16 +23,13 @@ router.get("/create", isLoggedIn,(req, res, next) => {
   // const toppingEnumArray = Pizza.schema.path("toppings").caster.enumValues;
   const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
   // console.log(CheeseEnumArray)
-  Pizza.find()
-    .then((pizzasResult,ingredientsArr) => {
-      // console.log("new type", authorsResult)
-      console.log(pizzasResult),
+  Ingredients.find()
+    .then(("ingredients") => {
       res.render("pizza/pizza-create", {
-        pizza: pizzasResult,
         ingredients: ingredientsArr,
         // enumTopArr: toppingEnumArray,
         enumCheeseArr: CheeseEnumArray,
-      });
+      })
     })
     .catch();
 });
