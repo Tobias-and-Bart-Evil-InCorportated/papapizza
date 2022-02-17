@@ -9,7 +9,7 @@ const pizzaSchema = new Schema(
         unique: true,
       },
       tags: [String],
-      toppings: {type: Schema.Types.ObjectId, ref: "Ingredients"},
+      toppings: [{type: Schema.Types.ObjectId, ref: "Ingredients"}],
         // type: [String],
         // enum: ["salami","mozarella","peperoni","ham","beef","paprika","tomato","olives",{type: Schema.Types.ObjectId, ref: "Author"},],
       sauces: {
