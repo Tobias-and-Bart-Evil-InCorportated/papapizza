@@ -9,7 +9,6 @@ const router = require("express").Router();
 router.get("/", (req, res, next) => {
   // console.log(res);
   Pizza.find()
-  // .populate("ingredients")
     .then((resultFromDB) => {
       // console.log("DB Result of pizza:", resultFromDB)
       res.render("pizza/pizza-list", { pizzas: resultFromDB });
@@ -82,10 +81,14 @@ router.post("/create/ingredients", (req, res, next) => {
 
 router.get("/:pizzaId", (req, res, next) => {
   Pizza.findById(req.params.pizzaId)
+<<<<<<< HEAD
   .populate("ingredients")
+=======
+    .populate("toppings")
+    
+>>>>>>> e301cf53187fcf3998ca4d8e6d97f3e8c9fb6cbc
     .then((resultFromDB) => {
-      // resultFromDB.push(test_pizza);
-      // console.log("DB Result of pizza:", resultFromDB)
+      console.log(resultFromDB)
       res.render("pizza/pizza-details", resultFromDB);
     })
     .catch();

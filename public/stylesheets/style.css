@@ -62,6 +62,10 @@ h1 {
   align-items: left;
 }
 .whiteText{
+  background-color: black;
+  padding: 40px;
+  opacity: 0.8;
+  border-radius:2% ;
   color: rgb(249, 250, 249);
 }
 .linkColor{
