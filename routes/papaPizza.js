@@ -65,19 +65,24 @@ router.get("/create/ingredients", isLoggedIn, (req, res, next) => {
   Ingredients.find()
     .then((ingredientsResult) => {
       // console.log("new type", authorsResult)
-      res.render("pizza/pizza-ingredients", { ingriendts: ingredientsResult });
+      res.render("pizza/pizza-ingredients", { ingredients: ingredientsResult });
     })
     .catch();
 });
 
 router.post("/create/ingredients", (req, res, next) => {
-  Pizza.find()
-  .then((pizzasResult) => {
-    res.render("pizza/pizza-create", {
-      pizza: pizzasResult,
-    });
+  const ingredientsDetails = {
+    toppings: req.body.toppings,
+      cheese: req.body.cheese,
+      seasoning: req.body.seasoning,
+  }
+  Ingredients.create()
+  .then((ingredientsDetails) => {
+    res.redirect("/");
   })
-  .catch();
+  .catch((err) => {
+    console.log("Error creating new ingredientsDetails...", err);
+  });
 });
 
 router.get("/:pizzaId", (req, res, next) => {
