@@ -53,11 +53,13 @@ h1 {
   text-align: center;
 }
 .textLink{
-  margin-top: 40px;
+  padding-top: 40px;
 }
-.textRow{
+.textIndexRow{
+  margin-left: 40px;
   font-size: x-large;
-  display: inline-block; text-align: left;
+  text-align: left;
+  align-items: left;
 }
 .whiteText{
   color: rgb(249, 250, 249);
