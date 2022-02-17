@@ -63,8 +63,8 @@
   <h3>Toppings:</h3>
       <p>Choose your Toppings:</p>
 
-  {{#each ingredientsArr}}
-  <input type="checkbox" class="toppings whiteText" name="toppings" value="{{this._id}}">
+    {{#each ingredientsArr}}
+    <input type="checkbox" class="toppings whiteText" name="toppings" value="{{this._id}}">
     <label for="toppings"> add {{this.name}} </label><br>
   {{/each}}
   </div>

@@ -3,7 +3,7 @@ const Pizza = require("../models/Pizza.model");
 const router = require("express").Router();
 
 /* GET home page */
-router.get("/", (req, res, next) =>{
+router.get("/", (req, res, next) => {
 
   // const pizzaDetails = {
   //   name: "uno salami",
@@ -16,12 +16,12 @@ router.get("/", (req, res, next) =>{
   // }
   // Pizza.create(pizzaDetails)
   //   .then( (pizzaDetails)=> console.log("create pizza",+ pizzaDetails))
-    
+
   //   .catch()
 
 
   res.render("index");
- });
+});
 
 module.exports = router;
 

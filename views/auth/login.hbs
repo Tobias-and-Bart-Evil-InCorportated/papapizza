@@ -1,5 +1,5 @@
 <div class="backgroundCreateUser">
-   <div id="form">
+   <div id="form" class="opacityBox">
       <h2>Login</h2>
 
       {{#if errorMessage}}
@@ -8,11 +8,11 @@
 
       <form action="/auth/login" method="POST">
 
-         <label> Email
+         <label> Email:
             <input type="email" name="email" placeholder="rockstar@ironhack.com" required />
          </label>
 
-         <label>Password
+         <label>Password:
             <input type="password" name="password" placeholder="********" required />
          </label>
 

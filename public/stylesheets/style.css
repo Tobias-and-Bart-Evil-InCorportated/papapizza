@@ -22,17 +22,10 @@ height: 900px;
   }
 .backgroundCreatePizza{
     max-width: 100%;
-<<<<<<< HEAD
     background-image: url("/images/create-background.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 1200px;
-=======
-    background-image: url("/images/background.jpg");
     background-size: cover;
     background-repeat: repeat;
     height: 900px;
->>>>>>> e3d3f8cda375a64f1f1a696af6f278c647f9b4d4
   }
 .backgroundPizzaDetails{
   max-width: 100%;
@@ -93,6 +86,13 @@ h1 {
 .linkImage{
 max-width: 100px;
 }
+.linkImageUser{
+  border-radius:100px;
+  background-color: white;
+  opacity: 0.8;
+  max-width: 100px;
+  
+  }
 .col{
   margin: 20px;
   padding: 20px;
@@ -120,8 +120,8 @@ max-width: 15%;
 .createPizzabox{
   background-color: black;
   padding: 30px;
-  opacity: 0.78;
-  border-radius:2% ;
+  opacity: 0.8;
+  border-radius:10px ;
   color: rgb(249, 250, 249);
 }
 .bigButton{

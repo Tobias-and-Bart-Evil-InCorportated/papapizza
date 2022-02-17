@@ -32,8 +32,31 @@ const pizzaSchema = new Schema(
       details: String,
       
     },
+    tags: [String],
+    toppings: [{ type: Schema.Types.ObjectId, ref: "Ingredients" }],
+    // type: [String],
+    // enum: ["salami","mozarella","peperoni","ham","beef","paprika","tomato","olives",{type: Schema.Types.ObjectId, ref: "Author"},],
+    sauces: {
+      type: [String],
+      enum: ["tomato sauce", "crême fresh", "barbecue sauce"]
+    },
+    baseCheese: {
+      type: [String],
+      enum: ["shredded cheese", "gouda", "cheddar", "gorgonzola", "mozarella", "bufflo mozarella", "pecorino"],
+    },
+    dough: {
+      type: String,
+      required: true,
+      enum: ["neapolitian", "gluten free", "vegie dough"],
+      default: "neapolitian",
+
+    },
+    imagesUrl: String,
+    details: String,
+
+  },
   {
-    
+
     timestamps: true,
   }
 );
