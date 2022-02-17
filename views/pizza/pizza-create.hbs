@@ -1,33 +1,45 @@
 <div class="backgroundCreatePizza ">
-  <h2 class="whiteText">Create a pizza</h2>
-
+  <h2 class="createPizzabox">Create a pizza</h2>
 
   <form action="/papaPizza/create" method="POST" enctype="multipart/form-data">
-    <label class="whiteText">
-      Name:
+  <div class="container">
+<div class="row">
+
+  <div class="col createPizzabox">
+    <labe>
+      <h5> Name your Pizza:<h5>
       <input type="text" name="name" />
     </label>
-    <br />
+    </div>
 
-    <label class="whiteText">
-      type of Pizza:
+<div class="col createPizzabox">
+    <label>
+      <h5> What kind of pizza is this?</h5>
       <input type="text" name="tags" />
     </label>
-    <br />
+    </div>
 
+<div class="col createPizzabox">
+    <h5>Add a Picture</h5>
     <input type="file" name="pizza-cover-image" accept="image/png, image/jpg"/>
-    <br>
+    </div>
+    </div>
 
-    <label> type of dough:
+    </div>
+<div class="container">
+  <div class="row ">
+      
+    <label class="col createPizzabox"> <h3>type of dough: </h3>
       <select name="dough">
         <option class="whiteText" value="neapolitian"> Neapolitian (normal pizza dough)</option>
         <option class="whiteText" value="gluten free"> Gluten free pizza dough</option>
         <option class="whiteText" value="vegie dough"> Vegie dough</option>
       </select>
     </label>
-    <br />
 
-    
+
+
+    <div class=" col createPizzabox">
       <h3>sauce base:</h3>
       <p>Choose 1 or more sauces for your pizza</p>
 
@@ -39,9 +51,15 @@
     <input type="checkbox" class="whiteText" id="sauce3" name="sauces" value="barbecue sauce">
     <label for="sauces"> i want pizza barbecue sauce</label><br>
   </div>
+  </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row ">
 
 
-
+<div class="col createPizzabox">
   <h3>Toppings:</h3>
       <p>Choose your Toppings:</p>
 
@@ -49,21 +67,34 @@
   <input type="checkbox" class="toppings whiteText" name="toppings" value="{{this._id}}">
     <label for="toppings"> add {{this.name}} </label><br>
   {{/each}}
+  </div>
+
+  <div class="col createPizzabox">
   <h3>Cheese</h3>
   <p> Create your cheese base:</p>
 
-  {{!-- {{#each enumCheeseArr}}
+  {{#each enumCheeseArr}}
   <input type="checkbox" class="baseCheese whiteText" name="baseCheese" value="{{this}}">
     <label for="baseCheese"> add {{this}} </label><br>
-  {{/each}} --}}
-  
+  {{/each}}
+  </div>
+  </div>
+  </div>
+  <div class="container">
+  <div class="row ">
+
+  <div class="col createPizzabox">
     <label>
       Details:<br>
       <textarea name="details whiteText" cols="40" rows="3"> </textarea>
     </label>
-    <br />
+  </div>
+  <div class="col createPizzabox">
+    <button class="bigButton btn btn-success" type="submit"> Create </button>
+</div>
+</div>
+</div>
 
-    <button class="btn btn-success" type="submit"> Create </button>
 
   </form>
 </div>

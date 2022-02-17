@@ -18,12 +18,12 @@ router.get("/", (req, res, next) => {
 
 router.get("/create", isLoggedIn,(req, res, next) => {
   // const toppingEnumArray = Pizza.schema.path("toppings").caster.enumValues;
-  // const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
+  const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
   Ingredients.find()
     .then((ingredients) => {
       res.render("pizza/pizza-create", {
         ingredientsArr: ingredients , 
-  // enumCheeseArr: CheeseEnumArray,
+  enumCheeseArr: CheeseEnumArray,
       })
     })
     .catch();
@@ -81,12 +81,8 @@ router.post("/create/ingredients", (req, res, next) => {
 
 router.get("/:pizzaId", (req, res, next) => {
   Pizza.findById(req.params.pizzaId)
-<<<<<<< HEAD
-  .populate("ingredients")
-=======
     .populate("toppings")
     
->>>>>>> e301cf53187fcf3998ca4d8e6d97f3e8c9fb6cbc
     .then((resultFromDB) => {
       console.log(resultFromDB)
       res.render("pizza/pizza-details", resultFromDB);
