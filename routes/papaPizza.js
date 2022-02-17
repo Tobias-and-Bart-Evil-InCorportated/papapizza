@@ -82,6 +82,7 @@ router.post("/create/ingredients", (req, res, next) => {
 
 router.get("/:pizzaId", (req, res, next) => {
   Pizza.findById(req.params.pizzaId)
+  .populate("ingredients")
     .then((resultFromDB) => {
       // resultFromDB.push(test_pizza);
       // console.log("DB Result of pizza:", resultFromDB)
