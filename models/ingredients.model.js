@@ -13,21 +13,21 @@ const ingredientSchema = new Schema(
     timestamps: true,
   }
 );
-const cheeseSchema = new Schema(
-  {
-      name:{
-        type: String, 
-        unique: true,
-      },
-      calories: Number,
-    },
-  {
+// const cheeseSchema = new Schema(
+//   {
+//       name:{
+//         type: String, 
+//         unique: true,
+//       },
+//       calories: Number,
+//     },
+//   {
     
-    timestamps: true,
-  }
-);
+//     timestamps: true,
+//   }
+// );
 
 const Ingredients = model("Ingredients", ingredientSchema);
-const Cheese = model("Cheeses", cheeseSchema);
+// const Cheese = model("Cheeses", cheeseSchema);
 
-module.exports = Ingredients, Cheese;
+module.exports = Ingredients;
