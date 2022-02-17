@@ -35,7 +35,7 @@ router.get("/create", isLoggedIn,(req, res, next) => {
 });
 
 router.post("/create", fileUploader.single('pizza-cover-image'), (req, res, next) => {
-  // console.log(req.file.path);
+  console.log(req.file.path);
   const pizzaDetails = {
     name: req.body.name,
     tags: req.body.tags,

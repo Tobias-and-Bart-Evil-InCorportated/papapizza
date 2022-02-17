@@ -1,15 +1,15 @@
-<div class="backgroundCreatePizza">
-  <h2>Create a pizza</h2>
+<div class="backgroundCreatePizza ">
+  <h2 class="whiteText">Create a pizza</h2>
 
 
-  <form action="/papaPizza/create" method="POST" enctype="multipart/form-data">
-    <label>
+  <form action="/papaPizza/create" method="POST">
+    <label class="whiteText">
       Name:
       <input type="text" name="name" />
     </label>
     <br />
 
-    <label>
+    <label class="whiteText">
       type of Pizza:
       <input type="text" name="tags" />
     </label>
@@ -20,9 +20,9 @@
 
     <label> type of dough:
       <select name="dough">
-        <option value="neapolitian"> Neapolitian (normal pizza dough)</option>
-        <option value="gluten free"> Gluten free pizza dough</option>
-        <option value="vegie dough"> Vegie dough</option>
+        <option class="whiteText" value="neapolitian"> Neapolitian (normal pizza dough)</option>
+        <option class="whiteText" value="gluten free"> Gluten free pizza dough</option>
+        <option class="whiteText" value="vegie dough"> Vegie dough</option>
       </select>
     </label>
     <br />
@@ -32,11 +32,11 @@
       <p>Choose 1 or more sauces for your pizza</p>
 
   <div>
-    <input type="checkbox" id="sauce1" name="sauces" value="tomato sauce" checked>
+    <input type="checkbox" class="whiteText" id="sauce1" name="sauces" value="tomato sauce" checked>
     <label for="sauces"> i want pizza tomato sauce</label><br>
-    <input type="checkbox" id="sauce2" name="sauces" value="crême fresh">
+    <input type="checkbox" class="whiteText" id="sauce2" name="sauces" value="crême fresh">
     <label for="sauces"> i want pizza crême freshs</label><br>
-    <input type="checkbox" id="sauce3" name="sauces" value="barbecue sauce">
+    <input type="checkbox" class="whiteText" id="sauce3" name="sauces" value="barbecue sauce">
     <label for="sauces"> i want pizza barbecue sauce</label><br>
   </div>
 
@@ -46,20 +46,20 @@
       <p>Choose your Toppings:</p>
 
   {{#each enumTopArr}}
-  <input type="checkbox" class="toppings" name="toppings" value="{{this}}">
+  <input type="checkbox" class="toppings whiteText" name="toppings" value="{{this}}">
     <label for="toppings"> add {{this}} </label><br>
   {{/each}}
   <h3>Cheese</h3>
   <p> Create your cheese base:</p>
 
   {{#each enumCheeseArr}}
-  <input type="checkbox" class="baseCheese" name="baseCheese" value="{{this}}">
+  <input type="checkbox" class="baseCheese whiteText" name="baseCheese" value="{{this}}">
     <label for="baseCheese"> add {{this}} </label><br>
   {{/each}}
   
     <label>
       Details:<br>
-      <textarea name="details" cols="40" rows="3"> </textarea>
+      <textarea name="details whiteText" cols="40" rows="3"> </textarea>
     </label>
     <br />
 
