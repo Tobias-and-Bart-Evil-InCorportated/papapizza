@@ -16,14 +16,14 @@ router.get("/", (req, res, next) => {
     .catch();
 });
 
-router.get("/create", isLoggedIn,(req, res, next) => {
+router.get("/create", isLoggedIn, (req, res, next) => {
   // const toppingEnumArray = Pizza.schema.path("toppings").caster.enumValues;
   // const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
   Ingredients.find()
     .then((ingredients) => {
       res.render("pizza/pizza-create", {
-        ingredientsArr: ingredients , 
-  // enumCheeseArr: CheeseEnumArray,
+        ingredientsArr: ingredients,
+        // enumCheeseArr: CheeseEnumArray,
       })
     })
     .catch();
@@ -31,12 +31,12 @@ router.get("/create", isLoggedIn,(req, res, next) => {
 
 router.post("/create", fileUploader.single('pizza-cover-image'), (req, res, next) => {
   let image;
-    if (!req.file || !req.file.path){
-        image = "https://res.cloudinary.com/dizetpb6b/image/upload/v1645089700/pizza-stored-images/l0sc8lomwmawxn0ctyir.jpg"
-    }
-    else {
-        image = req.file.path
-    }
+  if (!req.file || !req.file.path) {
+    image = "https://res.cloudinary.com/dizetpb6b/image/upload/v1645089700/pizza-stored-images/l0sc8lomwmawxn0ctyir.jpg"
+  }
+  else {
+    image = req.file.path
+  }
   const pizzaDetails = {
     name: req.body.name,
     tags: req.body.tags,
@@ -71,18 +71,18 @@ router.post("/create/ingredients", (req, res, next) => {
     calories: req.body.calories,
   }
   Ingredients.create(ingredientsDetails)
-  .then((ingredientsDetails) => {
-    res.redirect("/");
-  })
-  .catch((err) => {
-    console.log("Error creating new ingredientsDetails...", err);
-  });
+    .then((ingredientsDetails) => {
+      res.redirect("/");
+    })
+    .catch((err) => {
+      console.log("Error creating new ingredientsDetails...", err);
+    });
 });
 
 router.get("/:pizzaId", (req, res, next) => {
   Pizza.findById(req.params.pizzaId)
     .populate("toppings")
-    
+
     .then((resultFromDB) => {
       console.log(resultFromDB)
       res.render("pizza/pizza-details", resultFromDB);

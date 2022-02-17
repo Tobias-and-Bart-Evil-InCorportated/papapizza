@@ -1,37 +1,38 @@
 <div class="backgroundPizzaDetails">
+    <h3 class="text-center opacityBoxSlim"> Pizza Recepie for {{name}} <a class="btn btn-success" href="/papaPizza">back
+            to List</a></h3>
 
-<h1 class="text-center opacityBoxSlim"> Pizza Recepie for {{name}} <br><a  class="btn btn-success" href="/papaPizza">back to List</a></h1>
-
-
-<section class="pizza's-detail">
-<div class="row">
-<div class="col opacityBox">
-
+    <section class="pizza's-detail">
+        <div class="row">
+            <div class="col opacityBox">
 
 
-<p>Type: {{tags}}</p>
-<img class="linkImage" src="{{this.imagesUrl}}" alt="{{this.name}}">
-<ol>Toppings:
-{{#each toppings}}
-<li>{{this.name}}</li>
-{{/each}}
-</ol><br>
-<ol> Sauce:
-{{#each sauce}}
-<li>{{this}}</li>
-{{/each}}
-</ol> <br>
-<p>Sauce: {{sauces}}</p>
-<p>Dough: {{dough}}</p>
+                <img class="linkImage" src="{{this.imagesUrl}}" alt="{{this.name}}">
+                <p> Type: {{tags}}</p>
 
-<ol>BaseCheese:
-{{#each baseCheese}}
-<li>{{this}}</li>
-{{/each}}
-</ol><br>
-<p>Details: {{details}}</p>
-</div>
-<div class="col"></div>
-</div>
-</section>
+                <ol> Sauce:
+                    {{#each sauces}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ol>
+                <p>Dough: {{dough}}</p>
+
+                {{!-- <ol>BaseCheese:
+                    {{#each baseCheese}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ol><br> --}}
+
+            </div>
+            <div class="col opacityBox">
+                <ol>Toppings:
+                    {{#each toppings}}
+                    <li>{{this.name}}</li>
+                    {{/each}}
+                </ol><br>
+
+            </div>
+        </div>
+        <p class="opacityBox">Details: {{details}}</p>
+    </section>
 </div>

@@ -15,7 +15,7 @@
     </label>
     <br />
 
-    <input type="file" name="pizza-cover-image" accept="image/png, image/jpg"/>
+    <input type="file" name="pizza-cover-image" accept="image/png, image/jpg" />
     <br>
 
     <label> type of dough:
@@ -27,36 +27,36 @@
     </label>
     <br />
 
-    
-      <h3>sauce base:</h3>
-      <p>Choose 1 or more sauces for your pizza</p>
 
-  <div>
-    <input type="checkbox" class="whiteText" id="sauce1" name="sauces" value="tomato sauce" checked>
-    <label for="sauces"> i want pizza tomato sauce</label><br>
-    <input type="checkbox" class="whiteText" id="sauce2" name="sauces" value="crême fresh">
-    <label for="sauces"> i want pizza crême freshs</label><br>
-    <input type="checkbox" class="whiteText" id="sauce3" name="sauces" value="barbecue sauce">
-    <label for="sauces"> i want pizza barbecue sauce</label><br>
-  </div>
+    <h3>sauce base:</h3>
+    <p>Choose 1 or more sauces for your pizza</p>
+
+    <div>
+      <input type="checkbox" class="whiteText" id="sauce1" name="sauces" value="tomato sauce" checked>
+      <label for="sauces"> i want pizza tomato sauce</label><br>
+      <input type="checkbox" class="whiteText" id="sauce2" name="sauces" value="crême fresh">
+      <label for="sauces"> i want pizza crême freshs</label><br>
+      <input type="checkbox" class="whiteText" id="sauce3" name="sauces" value="barbecue sauce">
+      <label for="sauces"> i want pizza barbecue sauce</label><br>
+    </div>
 
 
 
-  <h3>Toppings:</h3>
-      <p>Choose your Toppings:</p>
+    <h3>Toppings:</h3>
+    <p>Choose your Toppings:</p>
 
-  {{#each ingredientsArr}}
-  <input type="checkbox" class="toppings whiteText" name="toppings" value="{{this._id}}">
+    {{#each ingredientsArr}}
+    <input type="checkbox" class="toppings whiteText" name="toppings" value="{{this._id}}">
     <label for="toppings"> add {{this.name}} </label><br>
-  {{/each}}
-  <h3>Cheese</h3>
-  <p> Create your cheese base:</p>
+    {{/each}}
+    <h3>Cheese</h3>
+    <p> Create your cheese base:</p>
 
-  {{!-- {{#each enumCheeseArr}}
-  <input type="checkbox" class="baseCheese whiteText" name="baseCheese" value="{{this}}">
+    {{!-- {{#each enumCheeseArr}}
+    <input type="checkbox" class="baseCheese whiteText" name="baseCheese" value="{{this}}">
     <label for="baseCheese"> add {{this}} </label><br>
-  {{/each}} --}}
-  
+    {{/each}} --}}
+
     <label>
       Details:<br>
       <textarea name="details whiteText" cols="40" rows="3"> </textarea>

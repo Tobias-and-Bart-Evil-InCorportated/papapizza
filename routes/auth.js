@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const mongoose = require('mongoose');
 const bcryptjs = require('bcryptjs');
-const isLoggedIn =  require("../middleware/LoggedInMiddleware");
+const isLoggedIn = require("../middleware/LoggedInMiddleware");
 const isLoggedOut = require("../middleware/LoggedOutMiddleware");
 const User = require("../models/User.model");
 const saltRounds = 10;
@@ -14,36 +14,36 @@ router.get("/createUser", isLoggedOut, (req, res, next) => {
 
 router.post("/createUser", isLoggedOut, (req, res, next) => {
 
-    const {password, email, name} = req.body;
+    const { password, email, name } = req.body;
 
-    if( !password || !email || !name){
+    if (!password || !email || !name) {
         res.render('auth/createUser', { errorMessage: 'All fields are mandatory. Please provide name, email and password.' });
         return;
     }
     else if (password.length < 4) {
         return res.status(400).render("auth/login", {
-        errorMessage: "Your password needs to be at least 4 characters long.",
+            errorMessage: "Your password needs to be at least 4 characters long.",
         });
     }
 
     bcryptjs
         .genSalt(saltRounds)
-        .then( salt => {
+        .then(salt => {
             return bcryptjs.hash(password, salt)
         })
-        .then( (hash) => {
+        .then((hash) => {
             const userDetails = {
-                
+
                 email,
                 passwordHash: hash,
                 userName: name,
             }
             return User.create(userDetails);
         })
-        .then( userFromDB => {
+        .then(userFromDB => {
             res.render("auth/login");
         })
-        .catch( error => {
+        .catch(error => {
             if (error instanceof mongoose.Error.ValidationError) {
                 res.status(500).render('auth/createUser', { errorMessage: error.message });
             } else {
@@ -57,17 +57,17 @@ router.get('/login', isLoggedOut, (req, res) => res.render('auth/login'));
 
 
 router.post("/login", isLoggedOut, (req, res, next) => {
-    const {email, password} = req.body;
+    const { email, password } = req.body;
 
     if (!email || !password) {
         res.render('auth/login', { errorMessage: 'Please enter both, email and password to login.' });
         return;
     }
-    
 
-    User.findOne({email: email})
-        .then( userFromDB => {
-            if(!userFromDB){
+
+    User.findOne({ email: email })
+        .then(userFromDB => {
+            if (!userFromDB) {
                 res.render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
                 return;
             } else if (bcryptjs.compareSync(password, userFromDB.passwordHash)) {
@@ -85,7 +85,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
 router.get('/user-profile', isLoggedIn, (req, res) => {
     res.render('auth/user-profile', { userInSession: req.session.currentUser });
-    
+
 });
 
 

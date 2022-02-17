@@ -86,6 +86,13 @@ h1 {
 .linkImage{
 max-width: 100px;
 }
+.linkImageUser{
+  border-radius:100px;
+  background-color: white;
+  opacity: 0.8;
+  max-width: 100px;
+  
+  }
 .col{
   margin: 20px;
   padding: 20px;
