@@ -3,9 +3,8 @@ const { Schema, model } = require("mongoose");
 
 const ingredientSchema = new Schema(
   {
-      name: String,
-      type: String
-    
+      ingredient: String,
+          
     },
   {
     
