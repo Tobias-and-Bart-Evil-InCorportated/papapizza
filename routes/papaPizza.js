@@ -35,6 +35,13 @@ router.get("/create", isLoggedIn,(req, res, next) => {
 });
 
 router.post("/create", fileUploader.single('pizza-cover-image'), (req, res, next) => {
+  let image;
+    if (!req.file || !req.file.path){
+        image = "https://res.cloudinary.com/dizetpb6b/image/upload/v1645089700/pizza-stored-images/l0sc8lomwmawxn0ctyir.jpg"
+    }
+    else {
+        image = req.file.path
+    }
   const pizzaDetails = {
     name: req.body.name,
     tags: req.body.tags,
@@ -42,7 +49,7 @@ router.post("/create", fileUploader.single('pizza-cover-image'), (req, res, next
     sauces: req.body.sauces,
     toppings: req.body.toppings,
     baseCheese: req.body.baseCheese,
-    imagesUrl: req.file.path, 
+    imagesUrl: image,
     details: req.body.details,
   };
   Pizza.create(pizzaDetails)
