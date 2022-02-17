@@ -1,6 +1,6 @@
 const isLoggedIn = require("../middleware/LoggedInMiddleware");
-const Ingredients = require("../models/ingredients.model");
-const Pizza = require("../models/pizza.model")
+const Ingredients = require("../models/Ingredients.model");
+const Pizza = require("../models/Pizza.model")
 // const fileUploader = require('../config/cloudinary.config');
 const fileUploader = require("../config/cloudinary.config")
 const router = require("express").Router();
@@ -9,7 +9,7 @@ const router = require("express").Router();
 router.get("/", (req, res, next) => {
   // console.log(res);
   Pizza.find()
-  .populate("ingredients")
+  // .populate("ingredients")
     .then((resultFromDB) => {
       // console.log("DB Result of pizza:", resultFromDB)
       res.render("pizza/pizza-list", { pizzas: resultFromDB });
@@ -18,20 +18,14 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/create", isLoggedIn,(req, res, next) => {
-  // console.log("---------------------------")
-  // console.log(Pizza.schema.path('baseCheese').caster.enumValues);
   // const toppingEnumArray = Pizza.schema.path("toppings").caster.enumValues;
-  const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
-  // console.log(CheeseEnumArray)
+  // const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
   Ingredients.find()
     .then((ingredients) => {
-      // console.log("new type", authorsResult)
-      console.log(pizzasResult),
       res.render("pizza/pizza-create", {
-        ingredientsArr: ingredients ,
-        // enumTopArr: toppingEnumArray,
-        enumCheeseArr: CheeseEnumArray,
-      });
+        ingredientsArr: ingredients , 
+  // enumCheeseArr: CheeseEnumArray,
+      })
     })
     .catch();
 });
@@ -74,9 +68,8 @@ router.get("/create/ingredients", isLoggedIn, (req, res, next) => {
 
 router.post("/create/ingredients", (req, res, next) => {
   const ingredientsDetails = {
-    toppings: req.body.toppings,
-      cheese: req.body.cheese,
-      seasoning: req.body.seasoning,
+    name: req.body.name,
+    calories: req.body.calories,
   }
   Ingredients.create(ingredientsDetails)
   .then((ingredientsDetails) => {

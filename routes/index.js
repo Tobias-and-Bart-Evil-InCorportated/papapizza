@@ -1,4 +1,4 @@
-const Pizza = require("../models/pizza.model");
+const Pizza = require("../models/Pizza.model");
 
 const router = require("express").Router();
 
