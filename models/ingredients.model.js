@@ -4,16 +4,10 @@ const ingredientSchema = new Schema(
   {
 
     name: {
-      type: String, // "Mozzarella", "Pep..."
+      type: String, 
       unique: true,
     },
-    calories: Number, //calories per 100g
-
-
-    // typeOfIngredient: String //enum
-    // alami","mozarella","peperoni","ham","beef","paprika","tomato","olives"
-
-
+    calories: Number, 
   },
   {
 
