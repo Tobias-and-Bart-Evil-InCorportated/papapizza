@@ -23,13 +23,12 @@ router.get("/create", isLoggedIn,(req, res, next) => {
   // const toppingEnumArray = Pizza.schema.path("toppings").caster.enumValues;
   const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
   // console.log(CheeseEnumArray)
-  Pizza.find()
-    .then((pizzasResult,ingredientsArr) => {
+  Ingredients.find()
+    .then((ingredients) => {
       // console.log("new type", authorsResult)
       console.log(pizzasResult),
       res.render("pizza/pizza-create", {
-        pizza: pizzasResult,
-        ingredients: ingredientsArr,
+        ingredientsArr: ingredients ,
         // enumTopArr: toppingEnumArray,
         enumCheeseArr: CheeseEnumArray,
       });
@@ -51,7 +50,7 @@ router.post("/create", fileUploader.single('pizza-cover-image'), (req, res, next
     dough: req.body.dough,
     sauces: req.body.sauces,
     toppings: req.body.toppings,
-    baseCheese: req.body.baseCheese,
+    // baseCheese: req.body.baseCheese,
     imagesUrl: image,
     details: req.body.details,
   };
