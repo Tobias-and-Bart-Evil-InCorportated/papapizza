@@ -2,7 +2,7 @@
   <h2 class="whiteText">Create a pizza</h2>
 
 
-  <form action="/papaPizza/create" method="POST">
+  <form action="/papaPizza/create" method="POST" enctype="multipart/form-data">
     <label class="whiteText">
       Name:
       <input type="text" name="name" />
@@ -15,7 +15,7 @@
     </label>
     <br />
 
-    <input type="file" name="pizza-cover-image"/>
+    <input type="file" name="pizza-cover-image" accept="image/png, image/jpg"/>
     <br>
 
     <label> type of dough:
