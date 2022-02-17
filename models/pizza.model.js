@@ -20,6 +20,7 @@ const pizzaSchema = new Schema(
         type: [String],
         enum:["shredded cheese","gouda","cheddar","gorgonzola","mozarella","bufflo mozarella","pecorino"],
       },
+      seasoning:[{type: Schema.Types.ObjectId, ref: "Ingredients"}],
       dough:{
         type: String,
         required: true,
