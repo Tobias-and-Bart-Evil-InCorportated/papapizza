@@ -18,12 +18,12 @@ router.get("/", (req, res, next) => {
 
 router.get("/create", isLoggedIn, (req, res, next) => {
   // const toppingEnumArray = Pizza.schema.path("toppings").caster.enumValues;
-  // const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
+  const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
   Ingredients.find()
     .then((ingredients) => {
       res.render("pizza/pizza-create", {
-        ingredientsArr: ingredients,
-        // enumCheeseArr: CheeseEnumArray,
+        ingredientsArr: ingredients , 
+        enumCheeseArr: CheeseEnumArray,
       })
     })
     .catch();

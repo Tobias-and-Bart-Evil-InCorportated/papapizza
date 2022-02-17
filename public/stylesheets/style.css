@@ -22,7 +22,7 @@ height: 900px;
   }
 .backgroundCreatePizza{
     max-width: 100%;
-    background-image: url("/images/background.jpg");
+    background-image: url("/images/create-background.jpeg");
     background-size: cover;
     background-repeat: repeat;
     height: 900px;
@@ -116,4 +116,16 @@ max-width: 15%;
 
 #whitelink{
   color: rgb(249, 250, 249);
+}
+.createPizzabox{
+  background-color: black;
+  padding: 30px;
+  opacity: 0.8;
+  border-radius:10px ;
+  color: rgb(249, 250, 249);
+}
+.bigButton{
+  width: 200px;
+  height: 60px;
+  opacity: 0.99 !important;
 }
