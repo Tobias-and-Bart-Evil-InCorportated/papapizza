@@ -1,8 +1,8 @@
 const isLoggedIn = require("../middleware/LoggedInMiddleware");
 const Ingredients = require("../models/ingredients.model");
 const Pizza = require("../models/pizza.model");
-const fileUploader = require('../config/cloudinary.config');
-
+// const fileUploader = require('../config/cloudinary.config');
+const fileUploader = require("../config/cloudinary.config")
 const router = require("express").Router();
 
 // const test_pizza = {'name' : "test pizza"};
