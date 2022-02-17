@@ -2,25 +2,32 @@ const { Schema, model } = require("mongoose");
 
 const ingredientSchema = new Schema(
   {
-
-    name: {
-      type: String, // "Mozzarella", "Pep..."
-      unique: true,
+      name:{
+        type: String,
+        unique: true,
+      },
+      calories: Number,
     },
-    calories: Number, //calories per 100g
-
-
-    // typeOfIngredient: String //enum
-    // alami","mozarella","peperoni","ham","beef","paprika","tomato","olives"
-
-
-  },
   {
-
+    
+    timestamps: true,
+  }
+);
+const cheeseSchema = new Schema(
+  {
+      name:{
+        type: String, 
+        unique: true,
+      },
+      calories: Number,
+    },
+  {
+    
     timestamps: true,
   }
 );
 
 const Ingredients = model("Ingredients", ingredientSchema);
+const Cheese = model("Cheeses", cheeseSchema);
 
-module.exports = Ingredients;
+module.exports = Ingredients, Cheese;
