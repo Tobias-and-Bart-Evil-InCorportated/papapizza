@@ -45,9 +45,9 @@
   <h3>Toppings:</h3>
       <p>Choose your Toppings:</p>
 
-  {{#each enumTopArr}}
-  <input type="checkbox" class="toppings whiteText" name="toppings" value="{{this}}">
-    <label for="toppings"> add {{this}} </label><br>
+  {{#each ingredientsArr}}
+  <input type="checkbox" class="toppings whiteText" name="toppings" value="{{this._id}}">
+    <label for="toppings"> add {{this.toppings}} </label><br>
   {{/each}}
   <h3>Cheese</h3>
   <p> Create your cheese base:</p>

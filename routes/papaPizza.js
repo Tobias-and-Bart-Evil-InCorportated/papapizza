@@ -1,6 +1,6 @@
 const isLoggedIn = require("../middleware/LoggedInMiddleware");
 const Ingredients = require("../models/ingredients.model");
-const Pizza = require("../models/pizza.model");
+const Pizza = require("../models/pizza.model")
 // const fileUploader = require('../config/cloudinary.config');
 const fileUploader = require("../config/cloudinary.config")
 const router = require("express").Router();
@@ -9,6 +9,7 @@ const router = require("express").Router();
 router.get("/", (req, res, next) => {
   // console.log(res);
   Pizza.find()
+  .populate("ingredients")
     .then((resultFromDB) => {
       // console.log("DB Result of pizza:", resultFromDB)
       res.render("pizza/pizza-list", { pizzas: resultFromDB });
@@ -19,15 +20,17 @@ router.get("/", (req, res, next) => {
 router.get("/create", isLoggedIn,(req, res, next) => {
   // console.log("---------------------------")
   // console.log(Pizza.schema.path('baseCheese').caster.enumValues);
-  const toppingEnumArray = Pizza.schema.path("toppings").caster.enumValues;
+  // const toppingEnumArray = Pizza.schema.path("toppings").caster.enumValues;
   const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
   // console.log(CheeseEnumArray)
   Pizza.find()
-    .then((pizzasResult) => {
+    .then((pizzasResult,ingredientsArr) => {
       // console.log("new type", authorsResult)
+      console.log(pizzasResult),
       res.render("pizza/pizza-create", {
         pizza: pizzasResult,
-        enumTopArr: toppingEnumArray,
+        ingredients: ingredientsArr,
+        // enumTopArr: toppingEnumArray,
         enumCheeseArr: CheeseEnumArray,
       });
     })
@@ -76,7 +79,7 @@ router.post("/create/ingredients", (req, res, next) => {
       cheese: req.body.cheese,
       seasoning: req.body.seasoning,
   }
-  Ingredients.create()
+  Ingredients.create(ingredientsDetails)
   .then((ingredientsDetails) => {
     res.redirect("/");
   })
