@@ -22,10 +22,17 @@ height: 900px;
   }
 .backgroundCreatePizza{
     max-width: 100%;
+<<<<<<< HEAD
     background-image: url("/images/create-background.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 1200px;
+=======
+    background-image: url("/images/background.jpg");
+    background-size: cover;
+    background-repeat: repeat;
+    height: 900px;
+>>>>>>> e3d3f8cda375a64f1f1a696af6f278c647f9b4d4
   }
 .backgroundPizzaDetails{
   max-width: 100%;
@@ -61,11 +68,21 @@ h1 {
   text-align: left;
   align-items: left;
 }
-.whiteText{
+.opacityBox{
   background-color: black;
   padding: 40px;
   opacity: 0.8;
-  border-radius:2% ;
+  border-radius:10px ;
+  color: rgb(249, 250, 249);
+}
+.opacityBoxSlim{
+  background-color: black;
+  padding: 10px;
+  opacity: 0.8;
+  border-radius:10px ;
+  color: rgb(249, 250, 249);
+}
+.whiteText{ 
   color: rgb(249, 250, 249);
 }
 .linkColor{
