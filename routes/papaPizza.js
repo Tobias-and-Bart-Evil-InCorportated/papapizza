@@ -1,23 +1,21 @@
 const isLoggedIn = require("../middleware/LoggedInMiddleware");
 const Ingredient = require("../models/Ingredient.model");
 const Pizza = require("../models/Pizza.model")
-// const fileUploader = require('../config/cloudinary.config');
 const fileUploader = require("../config/cloudinary.config")
 const router = require("express").Router();
 
-// const test_pizza = {'name' : "test pizza"};
 router.get("/", (req, res, next) => {
-  // console.log(res);
+
   Pizza.find()
     .then((resultFromDB) => {
-      // console.log("DB Result of pizza:", resultFromDB)
+    
       res.render("pizza/pizza-list", { pizzas: resultFromDB });
     })
     .catch();
 });
 
 router.get("/create", isLoggedIn, (req, res, next) => {
-  // const toppingEnumArray = Pizza.schema.path("toppings").caster.enumValues;
+
   const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
   Ingredient.find()
     .then((ingredients) => {
@@ -103,20 +101,26 @@ router.post("/:pizzaId/delete", (req, res, next) => {
 
 router.get("/:pizzaId/edit", (req, res, next) => {
   const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
-  Pizza.findById(req.params.pizzaId)
+  let ingredientsInfo;
+  const findPizza = Pizza.findById(req.params.pizzaId)
   .populate("toppings")
-    .then( (pizzaDetails,ingredients) => {
-      res.render("pizza/pizza-edit", {
-        pizzaArr: pizzaDetails,
-        enumCheeseArr: CheeseEnumArray,
-        ingredientsArr: ingredients ,
-      }
-      );
-    })
-    .catch( err => {
-      console.log("Error getting pizza details from DB...", err);
-    });
-});
+
+Ingredient.find()
+  .then((ingredients)=>{
+    ingredientsInfo = ingredients
+    return findPizza
+  })
+  .then((pizzaFromDB)=> {
+    res.render("pizza/pizza-edit", {
+              pizzaArr: pizzaFromDB,
+              enumCheeseArr: CheeseEnumArray,
+              ingredientsArr: ingredientsInfo
+            })
+  })
+  .catch( err => {
+          console.log("Error getting pizza details from DB...", err);
+        });
+      })
 
 router.post("/:pizzaId/edit", fileUploader.single('pizza-cover-image'),isLoggedIn, (req, res, next) => {
   const pizzaId = req.params.pizzaId;
@@ -139,7 +143,6 @@ router.post("/:pizzaId/edit", fileUploader.single('pizza-cover-image'),isLoggedI
     imagesUrl: image,
     details: req.body.details,
   }
-
   console.log("here we have our new pizza", newDetailsEdit); 
   Pizza.findByIdAndUpdate(pizzaId, newDetailsEdit)
     .then( () => {
