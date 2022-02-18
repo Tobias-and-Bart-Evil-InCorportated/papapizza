@@ -3,44 +3,51 @@
             to List</a> Pizza Recepie for {{name}} </h3>
 
     <section class="pizza's-detail">
-        <div class="row">
-            <div class="col opacityBox">
+        <div class="container">
+            <div class="row">
+                <div class="col opacityBox">
 
-                    
 
-                <img class="linkImage" src="{{this.imagesUrl}}" alt="{{this.name}}">
-                <p> Type: {{tags}}</p>
 
-                <ol> Sauce:
-                    {{#each sauces}}
-                    <li>{{this}}</li>
-                    {{/each}}
-                </ol>
-                <p>Dough: {{dough}}</p>
+                    <img class="linkImage" src="{{this.imagesUrl}}" alt="{{this.name}}">
+                    <p> Type: {{tags}}</p>
 
-                <ol>BaseCheese:
-                    {{#each baseCheese}}
-                    <li>{{this}}</li>
-                    {{/each}}
-                </ol><br>
+                    <ol> Sauce:
+                        {{#each sauces}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ol>
+                    <p>Dough: {{dough}}</p>
+
+                    <ol>BaseCheese:
+                        {{#each baseCheese}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ol><br>
+
+                </div>
+                <div class="col opacityBox">
+                    <ol>Toppings:
+                        {{#each toppings}}
+                        <li>{{this.name}}</li>
+                        {{/each}}
+                    </ol><br>
+                </div>
 
             </div>
-            <div class="col opacityBox">
-                <ol>Toppings:
-                    {{#each toppings}}
-                    <li>{{this.name}}</li>
-                    {{/each}}
-                </ol><br>
+            <div class="row">
+                <div class="col opacityBox">
+                    <p>Details: {{this.details}}</p>
+                </div>
+                
+                <div class="col">
+                    <form class="opacityBox" action="/pizza/{{_id}}/delete" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
 
-            <a href="/papaPizza/{{_id}}/edit">edit</a>
             </div>
-            <div>
-            <form action="/papaPizza/{{_id}}/delete" method="POST">
-            <button>Delete</button>
-            </form>
         </div>
-        </form>
-        </div>
-        <p class="opacityBox">Details: {{details}}</p>
-    </section>
+</div>
+</section>
 </div>
