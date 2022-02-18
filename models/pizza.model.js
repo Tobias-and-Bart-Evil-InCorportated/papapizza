@@ -12,7 +12,7 @@ const pizzaSchema = new Schema(
     toppings: [{ type: Schema.Types.ObjectId, ref: "Ingredients" }],
     sauces: {
       type: [String],
-      enum: ["tomato sauce", "crême fresh", "barbecue sauce"]
+      enum: ["tomato sauce", "crême fresh", "barbecue sauce","coconut cream"]
     },
     baseCheese: {
       type: [String],
