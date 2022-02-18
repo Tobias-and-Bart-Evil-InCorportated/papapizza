@@ -1,11 +1,12 @@
 <div class="backgroundPizzaDetails">
-    <h3 class="text-center opacityBoxSlim"> Pizza Recepie for {{name}} <a class="btn btn-success" href="/papaPizza">back
-            to List</a></h3>
+    <h3 class="text-center opacityBoxSlim"><a class="btn btn-success" href="/papaPizza">back
+            to List</a> Pizza Recepie for {{name}} </h3>
 
     <section class="pizza's-detail">
         <div class="row">
             <div class="col opacityBox">
 
+                    
 
                 <img class="linkImage" src="{{this.imagesUrl}}" alt="{{this.name}}">
                 <p> Type: {{tags}}</p>
@@ -32,6 +33,10 @@
                 </ol><br>
 
             </div>
+            <form action="/pizza/{{_id}}/delete" method="POST">
+            <button>Delete</button>
+            </form>
+        </form>
         </div>
         <p class="opacityBox">Details: {{details}}</p>
     </section>

@@ -90,4 +90,46 @@ router.get("/:pizzaId", (req, res, next) => {
     .catch();
 });
 
+router.post("/:pizzaId/delete", (req, res, next) => {
+  Pizza.findByIdAndDelete(req.params.pizzaId)
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch(err => {
+      console.log("Error deleting pizza...", err);
+    });
+
+});
+
+
+router.get("/:pizzaID/edit", (req, res, next) => {
+  Book.findById(req.params.bookId)
+    .then( (bookDetails) => {
+      res.render("books/book-edit", bookDetails);
+    })
+    .catch( err => {
+      console.log("Error getting book details from DB...", err);
+    });
+});
+
+router.post("/:pizzaID/edit", (req, res, next) => {
+  const bookId = req.params.bookId;
+
+  const newDetails = {
+    title: req.body.title,
+    author: req.body.author,
+    description: req.body.description,
+    rating: req.body.rating,
+  }
+
+  Book.findByIdAndUpdate(bookId, newDetails)
+    .then( () => {
+      res.redirect(`/books/${bookId}`);
+    })
+    .catch( err => {
+      console.log("Error updating book...", err);
+    });
+});
+
+
 module.exports = router;
