@@ -18,11 +18,11 @@
                 </ol>
                 <p>Dough: {{dough}}</p>
 
-                {{!-- <ol>BaseCheese:
+                <ol>BaseCheese:
                     {{#each baseCheese}}
                     <li>{{this}}</li>
                     {{/each}}
-                </ol><br> --}}
+                </ol><br>
 
             </div>
             <div class="col opacityBox">
@@ -34,12 +34,12 @@
 
             </div>
             <div>
-            <form action="/papaPizza/{{_id}}/delete" method="POST">
+            <form class="opacityBox btn-success" action="/pizza/{{_id}}/delete" method="POST">
             <button>Delete</button>
             </form>
         </div>
         </form>
         </div>
-        <p class="opacityBox">Details: {{details}}</p>
+        <p class="opacityBox">Details: {{this.details}}</p>
     </section>
 </div>
