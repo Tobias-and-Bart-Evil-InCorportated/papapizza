@@ -90,7 +90,7 @@ router.get("/:pizzaId", (req, res, next) => {
 
 
 
-router.get("/:pizzaId/edit", (req, res, next) => {
+router.get,isLoggedIn("/:pizzaId/edit", (req, res, next) => {
   const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
   let ingredientsInfo;
   const findPizza = Pizza.findById(req.params.pizzaId)
@@ -113,7 +113,7 @@ Ingredient.find()
         });
       })
 
-router.post("/:pizzaId/edit", fileUploader.single('pizza-cover-image'),isLoggedIn, (req, res, next) => {
+router.post,isLoggedIn("/:pizzaId/edit", fileUploader.single('pizza-cover-image'),isLoggedIn, (req, res, next) => {
   const pizzaId = req.params.pizzaId;
   let image;
 
@@ -144,7 +144,7 @@ router.post("/:pizzaId/edit", fileUploader.single('pizza-cover-image'),isLoggedI
     });
 });
 
-router.post("/:pizzaId/delete", (req, res, next) => {
+router.post, isLoggedIn("/:pizzaId/delete", (req, res, next) => {
   Pizza.findByIdAndDelete(req.params.pizzaId)
     .then(() => {
       res.redirect("/");
