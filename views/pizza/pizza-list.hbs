@@ -6,7 +6,9 @@
         {{#each pizzas}}
         <div class=" pizzasListRow col opacityBoxSlim">
             <p class="whiteText">
-                <img class="linkImage" src="{{this.imagesUrl}}" alt="{{this.name}}"> {{this.name}}
+                <img class="linkImage" src="{{this.imagesUrl}}" alt="{{this.name}}">
+                <br> 
+                {{this.name}}
             </p>
             <p class="whiteText">{{this.tags}}</p>
             <a class="linkColor" href="/papaPizza/{{this._id}}">more details</a>
