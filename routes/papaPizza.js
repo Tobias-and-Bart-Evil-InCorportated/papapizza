@@ -87,16 +87,6 @@ router.get("/:pizzaId", (req, res, next) => {
     .catch();
 });
 
-router.post("/:pizzaId/delete", (req, res, next) => {
-  Pizza.findByIdAndDelete(req.params.pizzaId)
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(err => {
-      console.log("Error deleting pizza...", err);
-    });
-
-});
 
 
 router.get("/:pizzaId/edit", (req, res, next) => {
@@ -104,28 +94,28 @@ router.get("/:pizzaId/edit", (req, res, next) => {
   let ingredientsInfo;
   const findPizza = Pizza.findById(req.params.pizzaId)
   .populate("toppings")
-
-Ingredient.find()
+  
+  Ingredient.find()
   .then((ingredients)=>{
     ingredientsInfo = ingredients
     return findPizza
   })
   .then((pizzaFromDB)=> {
     res.render("pizza/pizza-edit", {
-              pizzaArr: pizzaFromDB,
-              enumCheeseArr: CheeseEnumArray,
-              ingredientsArr: ingredientsInfo
-            })
+      pizzaArr: pizzaFromDB,
+      enumCheeseArr: CheeseEnumArray,
+      ingredientsArr: ingredientsInfo
+    })
   })
   .catch( err => {
-          console.log("Error getting pizza details from DB...", err);
-        });
-      })
+    console.log("Error getting pizza details from DB...", err);
+  });
+})
 
 router.post("/:pizzaId/edit", fileUploader.single('pizza-cover-image'),isLoggedIn, (req, res, next) => {
   const pizzaId = req.params.pizzaId;
   let image;
-
+  
   console.log("here we have edit", pizzaId); 
   if (!req.file || !req.file.path) {
     image = "https://res.cloudinary.com/dizetpb6b/image/upload/v1645089700/pizza-stored-images/l0sc8lomwmawxn0ctyir.jpg"
@@ -145,12 +135,22 @@ router.post("/:pizzaId/edit", fileUploader.single('pizza-cover-image'),isLoggedI
   }
   console.log("here we have our new pizza", newDetailsEdit); 
   Pizza.findByIdAndUpdate(pizzaId, newDetailsEdit)
-    .then( () => {
-      res.redirect(`/papaPizza/${pizzaId}`);
+  .then( () => {
+    res.redirect(`/papaPizza/${pizzaId}`);
+  })
+  .catch( err => {
+    console.log("Error updating pizza...", err);
+  });
+});
+router.post("/:pizzaId/delete", (req, res, next) => {
+  Pizza.findByIdAndDelete(req.params.pizzaId)
+    .then(() => {
+      res.redirect("/");
     })
-    .catch( err => {
-      console.log("Error updating pizza...", err);
+    .catch(err => {
+      console.log("Error deleting pizza...", err);
     });
+
 });
 
 
