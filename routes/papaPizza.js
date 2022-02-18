@@ -113,7 +113,7 @@ router.get("/:pizzaId/edit", isLoggedIn,(req, res, next) => {
   });
 })
 
-router.post("/:pizzaId/edit",isLoggedIn, fileUploader.single('pizza-cover-image'),isLoggedIn, (req, res, next) => {
+router.post("/:pizzaId/edit",isLoggedIn, fileUploader.single('pizza-cover-image'), (req, res, next) => {
   const pizzaId = req.params.pizzaId;
   let image;
   
@@ -143,7 +143,7 @@ router.post("/:pizzaId/edit",isLoggedIn, fileUploader.single('pizza-cover-image'
     console.log("Error updating pizza...", err);
   });
 });
-router.post("/:pizzaId/delete", (req, res, next) => {
+router.post("/:pizzaId/delete", isLoggedIn,(req, res, next) => {
   Pizza.findByIdAndDelete(req.params.pizzaId)
     .then(() => {
       res.redirect("/");
@@ -154,15 +154,6 @@ router.post("/:pizzaId/delete", (req, res, next) => {
 
 });
 
-router.post ("/:pizzaId/delete", isLoggedIn,(req, res, next) => {
-  Pizza.findByIdAndDelete(req.params.pizzaId)
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(err => {
-      console.log("Error deleting pizza...", err);
-    });
 
-});
 
 module.exports = router;
