@@ -88,7 +88,6 @@ router.get("/:pizzaId", (req, res, next) => {
 });
 
 
-
 router.get("/:pizzaId/edit", (req, res, next) => {
   const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
   let ingredientsInfo;
@@ -153,5 +152,15 @@ router.post("/:pizzaId/delete", (req, res, next) => {
 
 });
 
+router.post("/:pizzaId/delete", (req, res, next) => {
+  Pizza.findByIdAndDelete(req.params.pizzaId)
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch(err => {
+      console.log("Error deleting pizza...", err);
+    });
+
+});
 
 module.exports = router;
