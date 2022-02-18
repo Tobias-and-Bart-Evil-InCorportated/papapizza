@@ -1,5 +1,5 @@
 const isLoggedIn = require("../middleware/LoggedInMiddleware");
-const Ingredients = require("../models/Ingredients.model");
+const Ingredient = require("../models/Ingredient.model");
 const Pizza = require("../models/Pizza.model")
 // const fileUploader = require('../config/cloudinary.config');
 const fileUploader = require("../config/cloudinary.config")
@@ -19,7 +19,7 @@ router.get("/", (req, res, next) => {
 router.get("/create", isLoggedIn, (req, res, next) => {
   // const toppingEnumArray = Pizza.schema.path("toppings").caster.enumValues;
   const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
-  Ingredients.find()
+  Ingredient.find()
     .then((ingredients) => {
       res.render("pizza/pizza-create", {
         ingredientsArr: ingredients , 
@@ -57,7 +57,7 @@ router.post("/create", fileUploader.single('pizza-cover-image'), (req, res, next
 });
 
 router.get("/create/ingredients", isLoggedIn, (req, res, next) => {
-  Ingredients.find()
+  Ingredient.find()
     .then((ingredientsResult) => {
       // console.log("new type", authorsResult)
       res.render("pizza/pizza-ingredients", { ingredients: ingredientsResult });
@@ -66,16 +66,16 @@ router.get("/create/ingredients", isLoggedIn, (req, res, next) => {
 });
 
 router.post("/create/ingredients", (req, res, next) => {
-  const ingredientsDetails = {
+  const ingredientDetails = {
     name: req.body.name,
     calories: req.body.calories,
   }
-  Ingredients.create(ingredientsDetails)
-    .then((ingredientsDetails) => {
+  Ingredient.create(ingredientDetails)
+    .then((ingredientDetails) => {
       res.redirect("/");
     })
     .catch((err) => {
-      console.log("Error creating new ingredientsDetails...", err);
+      console.log("Error creating new ingredientDetails...", err);
     });
 });
 
