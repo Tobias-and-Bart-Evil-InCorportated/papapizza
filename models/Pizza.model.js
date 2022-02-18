@@ -27,8 +27,8 @@ const pizzaSchema = new Schema(
     },
     imagesUrl: String,
     details: String,
-
   },
+ 
   {
 
     timestamps: true,

@@ -43,7 +43,7 @@ router.post("/create", fileUploader.single('pizza-cover-image'), (req, res, next
     dough: req.body.dough,
     sauces: req.body.sauces,
     toppings: req.body.toppings,
-    // baseCheese: req.body.baseCheese,
+    baseCheese: req.body.baseCheese,
     imagesUrl: image,
     details: req.body.details,
   };
@@ -68,7 +68,6 @@ router.get("/create/ingredients", isLoggedIn, (req, res, next) => {
 router.post("/create/ingredients", (req, res, next) => {
   const ingredientDetails = {
     name: req.body.name,
-    calories: req.body.calories,
   }
   Ingredient.create(ingredientDetails)
     .then((ingredientDetails) => {
@@ -102,32 +101,52 @@ router.post("/:pizzaId/delete", (req, res, next) => {
 });
 
 
-router.get("/:pizzaID/edit", (req, res, next) => {
-  Book.findById(req.params.bookId)
-    .then( (bookDetails) => {
-      res.render("books/book-edit", bookDetails);
+router.get("/:pizzaId/edit", (req, res, next) => {
+  const CheeseEnumArray = Pizza.schema.path("baseCheese").caster.enumValues;
+  Pizza.findById(req.params.pizzaId)
+  .populate("toppings")
+    .then( (pizzaDetails,ingredients) => {
+      res.render("pizza/pizza-edit", {
+        pizzaArr: pizzaDetails,
+        enumCheeseArr: CheeseEnumArray,
+        ingredientsArr: ingredients ,
+      }
+      );
     })
     .catch( err => {
-      console.log("Error getting book details from DB...", err);
+      console.log("Error getting pizza details from DB...", err);
     });
 });
 
-router.post("/:pizzaID/edit", (req, res, next) => {
-  const bookId = req.params.bookId;
+router.post("/:pizzaId/edit", fileUploader.single('pizza-cover-image'),isLoggedIn, (req, res, next) => {
+  const pizzaId = req.params.pizzaId;
+  let image;
 
-  const newDetails = {
-    title: req.body.title,
-    author: req.body.author,
-    description: req.body.description,
-    rating: req.body.rating,
+  console.log("here we have edit", pizzaId); 
+  if (!req.file || !req.file.path) {
+    image = "https://res.cloudinary.com/dizetpb6b/image/upload/v1645089700/pizza-stored-images/l0sc8lomwmawxn0ctyir.jpg"
+  }
+  else {
+    image = req.file.path
+  }
+  const newDetailsEdit = {
+    name: req.body.name,
+    tags: req.body.tags,
+    dough: req.body.dough,
+    sauces: req.body.sauces,
+    toppings: req.body.toppings,
+    baseCheese: req.body.baseCheese,
+    imagesUrl: image,
+    details: req.body.details,
   }
 
-  Book.findByIdAndUpdate(bookId, newDetails)
+  console.log("here we have our new pizza", newDetailsEdit); 
+  Pizza.findByIdAndUpdate(pizzaId, newDetailsEdit)
     .then( () => {
-      res.redirect(`/books/${bookId}`);
+      res.redirect(`/papaPizza/${pizzaId}`);
     })
     .catch( err => {
-      console.log("Error updating book...", err);
+      console.log("Error updating pizza...", err);
     });
 });
 
