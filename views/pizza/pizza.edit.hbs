@@ -1,7 +1,7 @@
 <div class="backgroundPizzaDetails">
     <h3 class="text-center opacityBoxSlim"><a class="btn btn-success" href="/papaPizza">back
             to List</a> Pizza Recepie for {{name}} </h3>
-
+    <form action="/pizza/{{_id}}/edit" method="post">
     <section class="pizza's-detail">
         <div class="row">
             <div class="col opacityBox">
@@ -31,12 +31,9 @@
                     <li>{{this.name}}</li>
                     {{/each}}
                 </ol><br>
-                
-            <button>edit</button>
+
             </div>
-            <form action="/pizza/{{_id}}/delete" method="POST">
-            <button>Delete</button>
-            </form>
+           <button>Save changes</button>
         </form>
         </div>
         <p class="opacityBox">Details: {{details}}</p>

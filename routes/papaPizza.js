@@ -43,7 +43,7 @@ router.post("/create", fileUploader.single('pizza-cover-image'), (req, res, next
     dough: req.body.dough,
     sauces: req.body.sauces,
     toppings: req.body.toppings,
-    // baseCheese: req.body.baseCheese,
+    baseCheese: req.body.baseCheese,
     imagesUrl: image,
     details: req.body.details,
   };
@@ -102,8 +102,8 @@ router.post("/:pizzaId/delete", (req, res, next) => {
 });
 
 
-router.get("/:pizzaID/edit", (req, res, next) => {
-  Book.findById(req.params.bookId)
+router.get("/:pizzaId/edit", (req, res, next) => {
+  Book.findById(req.params.pizzaId)
     .then( (bookDetails) => {
       res.render("books/book-edit", bookDetails);
     })
@@ -112,22 +112,26 @@ router.get("/:pizzaID/edit", (req, res, next) => {
     });
 });
 
-router.post("/:pizzaID/edit", (req, res, next) => {
-  const bookId = req.params.bookId;
+router.post("/:pizzaId/edit", (req, res, next) => {
+  const pizzaId = req.params.pizzaId;
 
   const newDetails = {
-    title: req.body.title,
-    author: req.body.author,
-    description: req.body.description,
-    rating: req.body.rating,
+    name: req.body.name,
+    tags: req.body.tags,
+    dough: req.body.dough,
+    sauces: req.body.sauces,
+    toppings: req.body.toppings,
+    baseCheese: req.body.baseCheese,
+    imagesUrl: image,
+    details: req.body.details,
   }
 
-  Book.findByIdAndUpdate(bookId, newDetails)
+  Pizza.findByIdAndUpdate(pizzaId, newDetails)
     .then( () => {
-      res.redirect(`/books/${bookId}`);
+      res.redirect(`/pizza/${pizzaId}`);
     })
     .catch( err => {
-      console.log("Error updating book...", err);
+      console.log("Error updating pizza...", err);
     });
 });
 
