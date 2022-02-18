@@ -87,16 +87,7 @@ router.get("/:pizzaId", (req, res, next) => {
     .catch();
 });
 
-router.post("/:pizzaId/delete", (req, res, next) => {
-  Pizza.findByIdAndDelete(req.params.pizzaId)
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(err => {
-      console.log("Error deleting pizza...", err);
-    });
 
-});
 
 
 router.get("/:pizzaId/edit", (req, res, next) => {
@@ -153,5 +144,15 @@ router.post("/:pizzaId/edit", fileUploader.single('pizza-cover-image'),isLoggedI
     });
 });
 
+router.post("/:pizzaId/delete", (req, res, next) => {
+  Pizza.findByIdAndDelete(req.params.pizzaId)
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch(err => {
+      console.log("Error deleting pizza...", err);
+    });
+
+});
 
 module.exports = router;
